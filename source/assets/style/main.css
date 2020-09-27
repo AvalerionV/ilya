@@ -305,6 +305,11 @@ main h1 {
     margin-left: 5px;
 }
 
+.copyright a {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
 .version {
     margin-left: auto;
     margin-right: 5px;
