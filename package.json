@@ -1,7 +1,7 @@
 {
   "name": "BCP_LMS",
   "version": "0.0.1-alpha.2",
-  "description": "Blue Caribbean Properties - Listing Management System",
+  "description": "Listing Management System",
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
   "dependencies": {
@@ -12,19 +12,19 @@
     "electron-packager": "^15.1.0"
   },
   "build": {
-    "appId": "ilya.dev",
-    "mac": {
-      "category": "data.management.software.ilya"
-    },
     "win": {
       "publish": [
-        "github"
+          {
+            "provider": "github",
+            "owner": "AvalerionV",
+            "repo": "ilya"  
+          }
       ]
     }
   },
   "scripts": {
     "pack": "electron-builder --dir",
-    "dist": "electron-builder",
+    "dist": "electron-builder -p always",
     "start": "electron .",
     "release": "build"
   },
