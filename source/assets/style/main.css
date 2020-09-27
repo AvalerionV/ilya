@@ -274,12 +274,15 @@ main h1 {
 	font-weight: 100;
 }
 
-.listing {
+.listing-b {
     display: none;
+}
+
+.listing {
     font-size: 1rem;
-    border-collapse:collapse; 
-    border-spacing: 0 1rem;
-    margin: 25px 0;
+    border-collapse:separate; 
+    border-spacing: 0 0;
+    margin-bottom: 2rem;
 }
 
 .listing th,td {
@@ -293,7 +296,6 @@ main h1 {
 
 .listing .item-data:hover {
     background-color: var(--table-primary);
-    border-radius: 5px;
 }
 
 .footer-container {

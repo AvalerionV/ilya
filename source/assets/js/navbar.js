@@ -1,12 +1,12 @@
 async function showDashboard() {
-    $(".listing").fadeOut("fast", function() {
-        $(".dashboard").fadeIn();
+    $(".listing-b").fadeOut("fast", function() {
+        $(".dashboard-b").fadeIn();
     });
 }
 
 async function showListing() {
-    $(".dashboard").fadeOut("fast", function() {
-        $(".listing").fadeIn();
+    $(".dashboard-b").fadeOut("fast", function() {
+        $(".listing-b").fadeIn();
     });   
 }
 
