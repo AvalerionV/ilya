@@ -1,10 +1,12 @@
 {
   "name": "ilya",
-  "version": "0.0.1",
+  "version": "0.0.1-alpha.2",
   "description": "Data Management Software",
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
-  "dependencies": {},
+  "dependencies": {
+    "electron-updater": "^4.3.5"
+  },
   "devDependencies": {
     "electron": "^11.0.0-beta.8",
     "electron-packager": "^15.1.0"
@@ -13,12 +15,18 @@
     "appId": "ilya.dev",
     "mac": {
       "category": "data.management.software.ilya"
+    },
+    "win": {
+      "publish": [
+        "github"
+      ]
     }
   },
   "scripts": {
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
-    "start": "electron ."
+    "start": "electron .",
+    "release": "build"
   },
   "author": "Dawood Khan Masood",
   "license": "ISC"

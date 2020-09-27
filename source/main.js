@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron')
+const { autoUpdater } = require("electron-updater")
 const path = require('path')
 
 function createWindow () {
@@ -16,6 +17,8 @@ function createWindow () {
   
   // and load the index.html of the app.
   win.loadFile(path.join(__dirname, 'index.html'))
+    
+  autoUpdater.checkForUpdates()
 
 }
 
