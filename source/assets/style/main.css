@@ -295,3 +295,21 @@ main h1 {
     background-color: var(--table-primary);
     border-radius: 5px;
 }
+
+.footer-container {
+    display: flex;
+    font-size: 0.8rem;
+}
+
+.copyright {
+    margin-left: 5px;
+}
+
+.version {
+    margin-left: auto;
+    margin-right: 5px;
+}
+
+#v {
+    font-weight: bold;
+}

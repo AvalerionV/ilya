@@ -27,6 +27,11 @@ async function rotate() {
     }
 }
 
+$(document).ready(function() {
+    document.getElementById("y").innerHTML = new Date().getFullYear();
+})
+
+
 window.setInterval(function(){
   time(); rotate();
 }, 1000);

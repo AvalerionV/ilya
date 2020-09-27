@@ -1,6 +1,6 @@
 {
   "name": "BCP_LMS",
-  "version": "0.0.1-alpha.2",
+  "version": "0.0.1-alpha.3",
   "description": "Listing Management System",
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
