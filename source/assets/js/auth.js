@@ -20,6 +20,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 function auth() {
     
     hideElements();
+    preLoginLoad();
     
     var email = $("#l-user").val();
     var password = $("#p-user").val();
@@ -29,10 +30,12 @@ function auth() {
         var errorCode = error.code;
         var errorMessage = error.message;
         
+        postLoginLoad();
         register(email, password);
 
         // ...
     });
+    
 }
 
 function register(email, password) {
