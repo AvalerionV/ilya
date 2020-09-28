@@ -1,7 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const { autoUpdater } = require("electron-updater")
 const path = require('path')
-require('./server');
 
 function createWindow () {
   // Create the browser window.
@@ -11,14 +10,14 @@ function createWindow () {
     title: "Blue Caribbean Properties - Listing Management System",
     webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
-        nativeWindowOpen: true
+        contextIsolation: true
     }
   })
   
   //win.setMenuBarVisibility(false)
   
   // and load the index.html of the app.
-  win.loadURL('http://localhost:3007');
+  win.loadFile(path.join(__dirname, 'index.html'))
     
   autoUpdater.checkForUpdatesAndNotify()
 

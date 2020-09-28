@@ -1,10 +1,10 @@
 function afterLogin(avatar) {
-    $(".login-b").hide();
+    $(".login-b").fadeOut();
     
-    $(".navbar").show(); 
-    $(".topbar").show();
-    $(".footer").show(); 
-    $(".dashboard-b").show();
+    $(".navbar").fadeIn(); 
+    $(".topbar").fadeIn();
+    $(".footer").fadeIn(); 
+    $(".dashboard-b").fadeIn();
     
     if(avatar != null) {
         $("#u-avatar").attr("src",avatar);
@@ -13,12 +13,12 @@ function afterLogin(avatar) {
 }
 
 function aferLogout() {
-    $(".navbar").hide(); 
-    $(".topbar").hide();
-    $(".footer").hide(); 
-    $(".dashboard-b").hide();
+    $(".navbar").fadeOut(); 
+    $(".topbar").fadeOut();
+    $(".footer").fadeOut(); 
+    $(".dashboard-b").fadeOut();
     
     $("#u-avatar").attr("src","./assets/images/user.png");
     
-    $(".login-b").show();
+    $(".login-b").fadeIn();
 }

@@ -5,8 +5,7 @@
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
   "dependencies": {
-    "electron-updater": "^4.3.5",
-    "firebase": "^7.21.1"
+    "electron-updater": "^4.3.5"
   },
   "devDependencies": {
     "electron": "^11.0.0-beta.8",

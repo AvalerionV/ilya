@@ -59,7 +59,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .social-b {
-    display: flex;
+    display: none;
     justify-content: center;
 }
 
@@ -140,12 +140,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 .input100 {
-    font-family: Poppins-Regular;
     color: #333333;
     line-height: 1.2;
     font-size: 18px;
     display: block;
-    width: 100%;
+    width: 90%;
     background: transparent;
     height: 60px;
     padding: 0 20px;
@@ -198,6 +197,7 @@ input {
     display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
 }
 
 .login100-form-btn {

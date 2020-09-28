@@ -6,14 +6,14 @@
         <link rel="stylesheet" href="./assets/style/main.css">
         <link rel="stylesheet" href="./assets/style/all.css">
         
-        <script src="../node_modules/firebase/firebase-app.js"></script>
-        <script src="../node_modules/firebase/firebase-auth.js"></script>
-        <script src="../node_modules/firebase/firebase-analytics.js"></script>
-        <script src="../node_modules/firebase/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
         
         <script src="./assets/js/firebase.js"></script>
-        <script src="assets/js/hide.js"></script>
-        <script src="assets/js/show.js"></script>
+        <script src="./assets/js/hide.js"></script>
+        <script src="./assets/js/show.js"></script>
         
         <script src="./assets/js/auth.js"></script>
         <script src="./assets/js/jquery.js"></script>
@@ -21,9 +21,7 @@
         <script src="./assets/js/navbar.js"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com">
-
-
+        
     </head>
 
     <body>
@@ -36,7 +34,7 @@
                     
                     <div class="card">
                         
-                        <span class="title center-t">Sign In With</span>
+                        <span class="title center-t">Authentication</span>
                         
                         <div class="form">
                         
@@ -49,22 +47,23 @@
                                 </a>
                                 
                                 <a href="#" class="btn-g" onclick="authGoogle(); return false">
-                                    
+                                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+
                                     <img src="./assets/images/icon-google.png" alt="GOOGLE"> Google
                                 
                                 </a>
                             
                             </div>
                             
-                            <form onsubmit="return false">
+                            <form onsubmit="return false" autocomplete="off">
                             
-                                <div class="p-t-31 p-b-9">
+                                <div class="p-t-13 p-b-9">
                                     <span class="txt1">
                                         Username
                                     </span>
                                 </div>
                                 <div class="wrap-input100 validate-input" data-validate = "Username is required">
-                                    <input class="input100" type="text" id="l-user" >
+                                    <input class="input100" type="text" id="l-user" placeholder="Your Email Address">
                                     <span class="focus-input100"></span>
                                 </div>
 
@@ -75,7 +74,7 @@
 
                                 </div>
                                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                                    <input class="input100" type="password" id="p-user" >
+                                    <input class="input100" type="password" id="p-user" placeholder="Your Password">
                                     <span class="focus-input100"></span>
                                 </div>
 

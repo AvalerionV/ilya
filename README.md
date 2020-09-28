@@ -1,2 +1,19 @@
-# ilya
- 
+# Ilya - LMS
+
+```ilya``` is a listing management software.
+
+## Installation
+
+Download and install the latest [release](https://github.com/AvalerionV/ilya/releases).
+
+## Screenshot
+
+
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
