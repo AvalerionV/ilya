@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         var uid = user.uid;
         var providerData = user.providerData;
         
-        afterLogin();
+        afterLogin(photoURL);
         // ...
     } else {
         // User is signed out.
