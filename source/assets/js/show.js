@@ -18,9 +18,7 @@ function aferLogout() {
     $(".footer").hide(); 
     $(".dashboard-b").hide();
     
-    if(avatar != null) {
-        $("#u-avatar").attr("src","./assets/images/user.png");
-    }
+    $("#u-avatar").attr("src","./assets/images/user.png");
     
     $(".login-b").show();
 }
