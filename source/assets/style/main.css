@@ -565,3 +565,8 @@ main h1 {
 .navbar, .topbar, .footer, .dashboard-b {
     display: none;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}

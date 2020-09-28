@@ -47,3 +47,11 @@ function register(email, password) {
         // ...
     });
 }
+
+function logout() {
+    // Sign out user
+    firebase.auth().signOut()
+        .catch(function (err) {
+        // Handle errors
+    });
+}
