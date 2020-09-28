@@ -17,6 +17,7 @@ function aferLogout() {
     $(".topbar").fadeOut();
     $(".footer").fadeOut(); 
     $(".dashboard-b").fadeOut();
+    $(".listing-b").fadeOut();
     
     $("#u-avatar").attr("src","./assets/images/user.png");
     
