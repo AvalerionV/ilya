@@ -1,6 +1,6 @@
 # Ilya - LMS
 
-```ilya``` is an open-source listing management software. This project uses electron framework to develope **win64** executable apps.
+```ilya``` is an open-source listing management system.
 
 ## Installation
 
