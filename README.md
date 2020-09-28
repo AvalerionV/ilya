@@ -8,7 +8,7 @@ Download and install the latest [release](https://github.com/AvalerionV/ilya/rel
 
 ## Screenshot
 
-
+![Listing](https://github.com/AvalerionV/ilya/screenshots/Screenshot 2020-09-28 161632.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
