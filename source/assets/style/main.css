@@ -36,14 +36,15 @@ body::-webkit-scrollbar-thumb {
 	background: var(--bg-primary);
 }
 
-.login-b {
-    display: grid;
-    height: 100vh;
-    place-items: center;
+.l-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.l-card {
+.login-container {
     width: 500px;
+    height: 500px;
 }
 
 .title {
