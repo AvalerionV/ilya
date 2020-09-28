@@ -260,6 +260,14 @@ button {
     margin-top: 17px;
 }
 
+.error {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: red;
+    border-radius: 5px;
+    color: var(--text-secondary);
+}
+
 .topbar {
 	margin-left: 5rem;
 	padding: 0.7rem 1rem;
