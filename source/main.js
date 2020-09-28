@@ -14,7 +14,7 @@ function createWindow () {
     }
   })
   
-  //win.setMenuBarVisibility(false)
+  win.setMenuBarVisibility(false)
   
   // and load the index.html of the app.
   win.loadFile(path.join(__dirname, 'index.html'))
