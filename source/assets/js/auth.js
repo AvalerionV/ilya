@@ -1,7 +1,7 @@
 function auth() {
     
-    var email = $(".l-user").val();
-    var password = $(".p-user").val();
+    var email = $("#l-user").val();
+    var password = $("#p-user").val();
     
     // Register a new user
     firebase.auth().createUserWithEmailAndPassword(email, password)
