@@ -323,6 +323,19 @@ main h1 {
 	height: 100vh;
 	position: fixed;
 	background-image: linear-gradient(var(--bg-primary), var(--bg-dark));
+    transition: width 200ms ease;
+}
+
+.navbar:hover {
+    width: 10rem;
+}
+
+.navbar:hover .link-text {
+    display: block;
+}
+
+.navbar:hover ~ .content, .navbar:hover ~ .topbar, .navbar:hover ~ .footer {
+    margin-left: 10rem;
 }
 
 .navbar-nav {
@@ -331,7 +344,6 @@ main h1 {
 	padding: 0;
 	margin: 0;
 	flex-direction: column;
-	align-items: center;
 	height: 100%;
 }
 
@@ -354,22 +366,27 @@ main h1 {
 	color: var(--text-secondary);
 }
 
-.nav-link i {	
-	transform: rotate(0deg);
+.nav-link i {
+    min-width: 2rem;
+    margin: 0 0 0 2.2rem;
 }
 
-.nav-link:hover {
+.r-icon {
+    transition: var(--transition-speed);
+}
+
+.link-text {
+    display: none;
+    transition: var(--transition-speed);
+}
+
+.nav-link:hover .r-icon {
 	font-size: 1.3rem;
-	transform: rotate(-360deg);
 }
 
 .nav-link:hover {
 	filter: grayscale(0%) opacity(1);
 	border-radius: 10px;
-}
-
-.nav-link i {
-	margin: 0 1.5rem;
 }
 
 .container-box {

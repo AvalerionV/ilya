@@ -30,8 +30,12 @@ function auth() {
         var errorCode = error.code;
         var errorMessage = error.message;
         
-        postLoginLoad();
-        register(email, password);
+        console.log(errorCode);
+        
+        register(email, password).then(function() {
+            postLoginLoad();
+            return false;
+        });
 
         // ...
     });
