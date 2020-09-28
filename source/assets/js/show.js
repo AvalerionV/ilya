@@ -11,3 +11,16 @@ function afterLogin(avatar) {
     }
         
 }
+
+function aferLogout() {
+    $(".navbar").hide(); 
+    $(".topbar").hide();
+    $(".footer").hide(); 
+    $(".dashboard-b").hide();
+    
+    if(avatar != null) {
+        $("#u-avatar").attr("src","./assets/images/user.png");
+    }
+    
+    $(".login-b").show();
+}
