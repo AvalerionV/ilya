@@ -11,13 +11,15 @@
         <script src="../node_modules/firebase/firebase-analytics.js"></script>
         <script src="../node_modules/firebase/firebase-firestore.js"></script>
         
-        <script src="assets/js/firebase.js"></script>
+        <script src="./assets/js/firebase.js"></script>
+        <script src="./assets/js/auth.js"></script>
         <script src="./assets/js/jquery.js"></script>
         <script src="./assets/js/time.js"></script>
         <script src="./assets/js/navbar.js"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com ">
+
 
     </head>
 
@@ -51,7 +53,7 @@
                             
                             </div>
                             
-                            <form>
+                            <form onsubmit="return false">
                             
                                 <div class="p-t-31 p-b-9">
                                     <span class="txt1">
@@ -59,7 +61,7 @@
                                     </span>
                                 </div>
                                 <div class="wrap-input100 validate-input" data-validate = "Username is required">
-                                    <input class="input100" type="text" name="username" >
+                                    <input class="input100" type="text" class="l-user" >
                                     <span class="focus-input100"></span>
                                 </div>
 
@@ -70,13 +72,13 @@
 
                                 </div>
                                 <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                                    <input class="input100" type="password" name="pass" >
+                                    <input class="input100" type="password" class="p-user" >
                                     <span class="focus-input100"></span>
                                 </div>
 
                                 <div class="container-login100-form-btn m-t-17">
-                                    <button class="login100-form-btn">
-                                        Sign In
+                                    <button class="login100-form-btn" onclick="auth();">
+                                        Next
                                     </button>
                                 </div>
                             
