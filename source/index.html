@@ -12,13 +12,16 @@
         <script src="../node_modules/firebase/firebase-firestore.js"></script>
         
         <script src="./assets/js/firebase.js"></script>
+        <script src="assets/js/hide.js"></script>
+        <script src="assets/js/show.js"></script>
+        
         <script src="./assets/js/auth.js"></script>
         <script src="./assets/js/jquery.js"></script>
         <script src="./assets/js/time.js"></script>
         <script src="./assets/js/navbar.js"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com ">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com">
 
 
     </head>
@@ -84,7 +87,9 @@
                                 
                                 <div class="error">
                                 
-                                    asd
+                                    <i class="fas fa-times e-icon"></i>
+                                    
+                                    <span id="e-msg"></span>
                                 
                                 </div>
                             

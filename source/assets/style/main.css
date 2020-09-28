@@ -261,11 +261,20 @@ button {
 }
 
 .error {
+    display: none;
     margin-top: 1rem;
     padding: 1rem;
     background-color: red;
     border-radius: 5px;
     color: var(--text-secondary);
+}
+
+.e-icon {
+    margin-right: 0.5rem;
+}
+
+#b-txt {
+    font-weight: bold;
 }
 
 .topbar {
