@@ -4,5 +4,6 @@
 const appVersion = require('../package.json').version;
 
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById("v").innerHTML = appVersion;
+    document.getElementById("v").innerHTML = appVersion;
+    document.getElementById("c-v").innerHTML = appVersion;
 })

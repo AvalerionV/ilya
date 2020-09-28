@@ -1,23 +1,39 @@
+async function closeAll() {
+    $(".dashboard-b").hide();
+    $(".listing-b").hide();
+    $(".info-b").hide();
+}
+
 async function showDashboard() {
-    $(".listing-b").fadeOut("fast", function() {
+    closeAll().then(function() {
         $(".dashboard-b").fadeIn();
     });
 }
 
 async function showListing() {
-    $(".dashboard-b").fadeOut("fast", function() {
-        $(".listing-b").fadeIn();
-    });   
+    closeAll().then(function() {
+        $(".listing-b").fadeIn(); 
+    });
+}
+
+async function showInfo() {
+    closeAll().then(function() {
+        $(".info-b").fadeIn();
+    });
 }
 
 $( document ).ready(function() {
-    $(".list-button").click(function() {
-        showListing();
-    })
-    
     $(".home-button").click(function() {
         showDashboard();
-    })
+    });
+    
+    $(".list-button").click(function() {
+        showListing();
+    });
+    
+    $(".info-button").click(function() {
+        showInfo();
+    });
     
 })
 

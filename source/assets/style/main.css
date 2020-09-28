@@ -222,6 +222,7 @@ input {
     transition: all 0.4s;
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
 button {
@@ -562,7 +563,7 @@ main h1 {
     font-weight: bold;
 }
 
-.navbar, .topbar, .footer, .dashboard-b {
+.navbar, .topbar, .footer, .dashboard-b, .info-b {
     display: none;
 }
 
@@ -601,4 +602,34 @@ main h1 {
 
 .dropdown:hover .dropdown-content {
   display: block;
+}
+
+
+
+#c-title {
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #f5f5f5;
+    font-weight: 100;
+}
+
+#c-version {
+    color: #888;
+}
+
+.changelog {
+    padding: 1rem;
+}
+
+#c-note {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.c-legend {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+}
+
+.c-n-container {
+    margin-top: 2rem;
 }
