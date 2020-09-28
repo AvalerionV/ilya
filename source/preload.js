@@ -2,8 +2,6 @@
 // It has the same sandbox as a Chrome extension.
 
 const appVersion = require('../package.json').version;
-const firebase = require("firebase");
-require("firebase/firestore");
 
 window.addEventListener('DOMContentLoaded', () => {
   document.getElementById("v").innerHTML = appVersion;
