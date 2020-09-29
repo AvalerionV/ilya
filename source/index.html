@@ -20,6 +20,7 @@
         <script src="./assets/js/jquery.js"></script>
         <script src="./assets/js/time.js"></script>
         <script src="./assets/js/navbar.js"></script>
+        <script src="./assets/js/filter.js"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -120,14 +121,14 @@
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link list-button">
-                        <i class="fas fa-receipt r-icon"></i>
+                        <i class="fas fa-list r-icon"></i>
                         <span class="link-text">Listing</span>
                     </a>
                 </li>
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <i class="fas fa-user-tie r-icon"></i>
+                        <i class="fas fa-user r-icon"></i>
                         <span class="link-text">Agent</span>
                     </a>
                 </li>
@@ -203,11 +204,30 @@
                 
                 <div class="container-box">
                     
-                    <div class="c-main bottom-border">
+                    <ul class="top-nav">
+                        <li class="top-item">
+                            <a class="top-link filter">
+                                Apply Filter
+                                <i class="fas fa-angle-down m-m-l drop-icon"></i>
+                            </a>
+                        </li>
+
+                        <li class="top-item">
+                            <div class="top-link">
+                                Search
+                            </div>
+                        </li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="container-box">
+                    
+                    <div class="t-main bottom-border">
                         
                             <a href="#" class="card t-card t-active">
                             
-                                <span>Listings</span>
+                                <span>Listing</span>
                             
                             </a>
                                                         
@@ -329,6 +349,8 @@
                         <div class="c-n-container">
                         
                             <div id="c-note">✨ : Added navbar link-text components</div>
+                            <div id="c-note">✨ : Added filter to listing components</div>
+                            <div id="c-note">🔨 : Fixed margin for listing tabs</div>
                         
                         </div>
                         

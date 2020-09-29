@@ -14,6 +14,7 @@
 	
 	--text-primary: #333333;
 	--text-secondary: #F1F4F9;
+    --text-third: #4D7DE3;
 	--transition-speed: 600ms;
 }
 
@@ -302,6 +303,7 @@ button {
 	display:flex;
 	align-items:center;
 	text-decoration: none;
+    color: var(--text-primary)
 }
 
 .top-link img {
@@ -347,9 +349,10 @@ main h1 {
 	height: 100%;
 }
 
-
-.nav-item:first-child {
-	margin-top: 0.3rem;
+.nav-item:hover {
+    transition: var(--transition-speed);
+    background-color: var(--bg-dark);
+    padding-left: 5px;
 }
 
 .nav-item:last-child {
@@ -359,10 +362,10 @@ main h1 {
 .nav-link {
 	display:flex;
 	align-items: center;
-	height: 4rem;
+	height: 4.8rem;
 	text-decoration: none;
 	transition: var(--transition-speed);
-	filter: grayscale(100%) opacity(0.8);
+	filter: grayscale(100%) opacity(0.6);
 	color: var(--text-secondary);
 }
 
@@ -380,10 +383,6 @@ main h1 {
     transition: var(--transition-speed);
 }
 
-.nav-link:hover .r-icon {
-	font-size: 1.3rem;
-}
-
 .nav-link:hover {
 	filter: grayscale(0%) opacity(1);
 	border-radius: 10px;
@@ -397,6 +396,42 @@ main h1 {
 	border-radius: 5px;
 	padding: 1rem;
 	margin-bottom: 1rem;
+}
+
+.t-main {
+	display: flex;
+	flex-wrap:wrap;
+}
+
+.m-s-r {
+    margin-right: 5px;
+}
+
+.m-m-l {
+    margin-left: 10px;
+}
+
+.filter {
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.filter-active {
+    transition: var(--transition-speed);
+    background-color: var(--bg-primary);
+    color: white;
+}
+
+.filter-active .drop-icon {
+    color: white;
+    transform: rotate(180deg);
+}
+
+.drop-icon {
+    color: var(--text-third);
+    transform: rotate(0deg);
+    transition: var(--transition-speed);
 }
 
 .c-main {
