@@ -200,21 +200,35 @@
             
             <div class="listing-b">
             
-                <h1>Management</h1>
+                <h1>Properties Management</h1>
                 
                 <div class="container-box">
                     
-                    <ul class="top-nav">
-                        <li class="top-item">
-                            <a class="top-link filter">
-                                Apply Filter
-                                <i class="fas fa-angle-down m-m-l drop-icon"></i>
+                    <ul class="filter-nav">
+                        <li class="filter-item">
+                            <a class="filter-link filter">
+                                <i class="fas fa-filter m-s-r drop-icon"></i>
+                                Filter
+                            </a>
+                        </li>
+                        
+                        <li class="filter-item">
+                            <a class="filter-link range">
+                                <i class="fas fa-table m-s-r drop-icon"></i>
+                                Range
                             </a>
                         </li>
 
-                        <li class="top-item">
-                            <div class="top-link">
-                                Search
+                        <li class="filter-item">
+                            <div class="search-link">
+                                
+                                <i class="fas fa-search search-icon"></i>
+                                <form onsubmit="return false" class="listing-search-box">
+                            
+                                    <input type="text" placeholder="Search" class="search-box">
+                                
+                                </form>
+                            
                             </div>
                         </li>
                     </ul>
