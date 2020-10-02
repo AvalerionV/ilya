@@ -553,7 +553,7 @@ main h1 {
 
 .bottom-border {
     border-bottom: 3px solid var(--bg-secondary);
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .card {
