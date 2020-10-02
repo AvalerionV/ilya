@@ -266,7 +266,7 @@ button {
     display: none;
     margin-top: 1rem;
     padding: 1rem;
-    background-color: red;
+    background-color: rgb(191, 34, 60);
     border-radius: 5px;
     color: var(--text-secondary);
 }
@@ -487,6 +487,70 @@ main h1 {
     margin: 1rem 0;
 }
 
+.f-s-main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.filters-container {
+    display: none;
+}
+
+.filters-container {
+    margin-right: 1rem;
+}
+
+.f-card-tab {
+    margin: 1rem;
+}
+
+.f-card {
+    display: flex;
+	padding: 1rem;
+    flex-wrap: wrap;
+    margin-left: 1rem;
+}
+
+.f-s-option {
+    cursor: pointer;
+}
+
+.f-card:first-child {
+    margin-right: 5px;
+}
+
+.filter-tab-options-container {
+    margin: 2rem 1rem;
+    flex-grow: 1;
+    flex-basis: 25%;
+}
+
+.filter-tab-options-container:first-child {
+    margin-left: 1rem;
+}
+
+.filter-tab-options-container {
+    margin-right: 1rem;
+}
+
+.filter-tab-options {
+    border: 1px solid #f1f1f1;
+}
+
+#title-bold {
+    font-weight: bold;
+}
+
+.filter-tab-option {
+    margin-top: 1rem;
+}
+
+.border-form input {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+    width: 100%;
+}
+
 .bottom-border {
     border-bottom: 3px solid var(--bg-secondary);
     margin-bottom: 3rem;
@@ -498,6 +562,14 @@ main h1 {
 	padding: 1rem;
 	border-radius: 0.5rem;
 	overflow: hidden;
+}
+
+.f-s-card {
+    display: flex;
+	padding: 0.5rem;
+	border-radius: 5px;
+    margin-top: 1rem;
+    transition: var(--transition-speed);
 }
 
 .user-card {
@@ -536,16 +608,8 @@ main h1 {
 .l-tab {
     justify-content: center;
     margin-right: 0.5rem;
-    margin-bottom: 1rem;
     text-decoration: none;
-    color: black;
-}
-
-.l-inactive:hover {
-    filter: opacity(1);
-    transition: var(--transition-speed);
-    border: 1px solid var(--text-primary);
-    color: var(--text-primary);
+    font-size: 12px;
 }
 
 .l-tab:last-child {
@@ -555,11 +619,6 @@ main h1 {
 .l-active {
     background-color: var(--bg-primary);
     color: white;
-}
-
-.l-inactive {
-    border: 1px solid var(--bg-secondary);
-    color: var(--text-primary);
 }
 
 .user-card h2 {
@@ -574,13 +633,16 @@ main h1 {
 }
 
 @media only screen and (max-width: 884px) {
-	.time-card {
+	.user-card {
+        text-align: center;
+    }
+    .time-card {
 		margin-top: 1rem;
 	}
 }
 
 @media only screen and (min-width: 884px) {
-	.time-card {
+    .time-card {
 		margin-left: 1rem;
 	}
 }
