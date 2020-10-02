@@ -1,6 +1,6 @@
-# Ilya - LMS
+# Ilya - Properties Management System
 
-```ilya``` is an open-source listing management system.
+```ilya``` is an open-source properties management system.
 
 ## Installation
 
