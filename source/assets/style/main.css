@@ -794,3 +794,29 @@ main h1 {
 .c-n-container {
     margin-top: 2rem;
 }
+
+.top-title-component {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 1rem;  
+}
+
+.top-component-left-button {
+    margin-left: auto;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    background: -webkit-linear-gradient(var(--bg-primary), var(--bg-dark));
+    background: -o-linear-gradient(var(--bg-primary), var(--bg-dark));
+    background: -moz-linear-gradient(var(--bg-primary), var(--bg-dark));
+    background: linear-gradient(var(--bg-primary), var(--bg-dark));
+}
+
+.top-title-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+}
