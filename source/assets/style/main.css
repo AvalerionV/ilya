@@ -697,10 +697,6 @@ main h1 {
     background-color: #fcfcfc;
 }
 
-.item-data {
-    border-radius: 5px;
-}
-
 .listing .item-data:hover {
     background-color: var(--table-primary);
     cursor: pointer;
