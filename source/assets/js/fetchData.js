@@ -53,22 +53,27 @@ function getFormattedDate() {
 
 function renderList(doc) {
     
-    $('.listing').append('<tr class="item-data"><td><label class="container"><input type="checkbox"></label></td><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().typeofproperty +'</td><td>' + doc.data().status + '</td></tr>')
-
+    $(".listing .listing-table-data").empty(); // clear the table data
+    locationArray = []; // empty the LocationArray
+    
+    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().typeofproperty +'</td><td></td><td>' + doc.data().status + '</td></tr>')
+    
+    locationArray.push(doc.data().location);
 }
 
-fetchListing('listing');
-
 function fetchListing(collection) {
-    
-    $(".listing tr").detach(); // clear the table data
     
     let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
     
     documents.then(function(doc) {
+
         doc.docs.forEach(doc => {
-            renderList(doc)
+            renderList(doc);
         })
+        
+        autocomplete(document.getElementById("location-form-input"), locationArray);
+        autocomplete(document.getElementById("nl-location-form-input"), locationArray);
+        
     })
     
 }

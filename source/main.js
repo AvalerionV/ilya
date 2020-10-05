@@ -5,7 +5,7 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const win = new BrowserWindow({
-    title: "Blue Caribbean Properties - Listing Management System",
+    title: "Blue Caribbean Properties - Property Management System",
     webPreferences: {
         preload: path.join(__dirname, 'preload.js'),
         contextIsolation: true

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="./assets/style/main.css">
         <link rel="stylesheet" href="./assets/style/all.css">
         <link rel="stylesheet" href="assets/style/loading.css">
+        <link rel="stylesheet" href="assets/style/jquery-ui.min.css">
         
         <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-auth.js"></script>
@@ -13,11 +14,15 @@
         <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-analytics.js"></script>
         
         <script src="./assets/js/firebase.js"></script>
+        
+        <script src="./assets/js/jquery/jquery.js"></script>
+        <script src="./assets/js/jquery-ui/jquery-ui.min.js"></script>
+        
         <script src="./assets/js/hide.js"></script>
         <script src="./assets/js/show.js"></script>
-        
         <script src="./assets/js/auth.js"></script>
-        <script src="./assets/js/jquery.js"></script>
+        <script src="./assets/js/save.js"></script>
+        <script src="./assets/js/autocomplete.js"></script>
         <script src="./assets/js/fetchData.js"></script>
         <script src="./assets/js/time.js"></script>
         <script src="./assets/js/navbar.js"></script>
@@ -148,9 +153,9 @@
         <div class="topbar">
             <ul class="top-nav">
                 <li class="top-item">
-                    <a class="top-link">
-                    <img src="./assets/images/logo.png" border="0">
-                    </a>
+                    <div class="top-link">
+                        <img src="./assets/images/logo.svg" border="0">
+                    </div>
                 </li>
 
                 <li class="top-item">
@@ -205,18 +210,18 @@
                 
                     <div class="top-title-text">
                     
-                        <span>Properties Management</span>
+                        <span>Property Management</span>
                     
                     </div>
                     
-                    <div class="top-component-left-button">
+                    <div class="top-component-left-button" id="new-listing">
                     
-                        <span>Add Listing</span>
+                        <i class="fas fa-plus m-s-r"></i> <span>Add New</span>
                     
                     </div>
                 
                 </div>
-            
+                
                 <div class="container-box">
                     
                     <ul class="filter-nav">
@@ -240,7 +245,7 @@
                                 <i class="fas fa-search search-icon"></i>
                                 <form onsubmit="return false" class="listing-search-box">
                             
-                                    <input type="text" placeholder="Search" class="search-box">
+                                    <input type="text" placeholder="Search Property Name" class="search-box">
                                 
                                 </form>
                             
@@ -251,26 +256,24 @@
                     <div class="filters-container">
                         
                         <div class="c-main">
-                        
-                            <div class="f-card-tab f-s-option">
-                            
-                                <div class="filter-tab">General <i class="fas fa-angle-right m-m-l"></i></div>
-                                
-                            
-                            </div>
                             
                             <div class="f-card filter-tab-options">
                             
                                 <div class="filter-tab-options-container">
                                 
                                     <span id="title-bold">Location</span>
+                                    <span id="clear-button" onclick="clearSelection(this);">(clear)</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="location-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Location" id="location-form-input">
                                             
+                                            <div class="autocomplete">
+
+                                                <input type="text" placeholder="Enter Location" id="location-form-input" autocomplete="off">
+                                            
+                                            </div>  
+                                                  
                                             <div class="f-s-main"></div>
 
                                         </form>
@@ -281,34 +284,21 @@
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">Type of Property</span>
-                                    
-                                    <div class="filter-tab-option">
-                                    
-                                        <form class="border-form" id="top-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Type" id="top-form-input">
-
-                                            <div class="f-s-main"></div>
-                                        
-                                        </form>
-                                        
-                                    </div>
-                                
-                                </div>
-                                
-                                <div class="filter-tab-options-container">
-                                
                                     <span id="title-bold">Bedrooms</span>
+                                    <span id="clear-button" onclick="clearSelection(this);">(clear)</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="bedrooms-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Number of Bedrooms" id="bedrooms-form-input">
                                             
-                                            <div class="f-s-main"></div>
+                                            <div class="autocomplete">
+                                                
+                                                <input type="text" placeholder="Number of Bedrooms" id="bedrooms-form-input" autocomplete="off">
 
+                                            </div>    
+                                               
+                                            <div class="f-s-main"></div>
+                                            
                                         </form>
                                         
                                     </div>
@@ -318,15 +308,20 @@
                                 <div class="filter-tab-options-container">
                                 
                                     <span id="title-bold">Bathrooms</span>
+                                    <span id="clear-button" onclick="clearSelection(this);">(clear)</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="bathrooms-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Number of Bathrooms" id="bathrooms-form-input">
                                             
+                                            <div class="autocomplete">
+                                                
+                                                <input type="text" placeholder="Number of Bathrooms" id="bathrooms-form-input" autocomplete="off">
+                                            
+                                            </div>    
+                                               
                                             <div class="f-s-main"></div>
-
+                                            
                                         </form>
                                         
                                     </div>
@@ -336,33 +331,20 @@
                                 <div class="filter-tab-options-container">
                                 
                                     <span id="title-bold">Size</span>
+                                    <span id="clear-button" onclick="clearSelection(this);">(clear)</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="size-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Size" id="size-form-input">
+                                            
+                                            <div class="autocomplete">
+                                                
+                                                <input type="text" placeholder="Enter Size" id="size-form-input" autocomplete="off">
+                                                
+                                            </div>
                                             
                                             <div class="f-s-main"></div>
-
-                                        </form>
-                                    
-                                    </div>
-                                
-                                </div>
-                                
-                                <div class="filter-tab-options-container">
-                                
-                                    <span id="title-bold">Status</span>
-                                    
-                                    <div class="filter-tab-option">
-                                    
-                                        <form class="border-form" id="status-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Status" id="status-form-input">
                                             
-                                            <div class="f-s-main"></div>
-
                                         </form>
                                     
                                     </div>
@@ -372,17 +354,75 @@
                                 <div class="filter-tab-options-container">
                                 
                                     <span id="title-bold">Price (USD)</span>
+                                    <span id="clear-button" onclick="clearSelection(this);">(clear)</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="price-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Price" id="price-form-input">
                                             
-                                            <div class="f-s-main"></div>
+                                            <div class="autocomplete">
+                                                
+                                                <input type="text" placeholder="Enter Price" id="price-form-input" autocomplete="off">
+                                                
+                                            </div>
 
+                                            <div class="f-s-main"></div>
+                                            
                                         </form>
                                     
+                                    </div>
+                                
+                                </div>
+                                
+                                <div class="filter-tab-options-container">
+                                
+                                    <span id="title-bold">Fee (USD)</span>
+                                    <span id="clear-button" onclick="clearSelection(this);">(clear)</span>
+                                    
+                                    <div class="filter-tab-option">
+                                    
+                                        <form class="border-form" id="fee-form" onsubmit="return false">
+                                            
+                                            <div class="autocomplete">
+                                                
+                                                <input type="text" placeholder="Enter Fee" id="fee-form-input" autocomplete="off">
+                                                
+                                            </div>
+
+                                            <div class="f-s-main"></div>
+                                            
+                                        </form>
+                                        
+                                    </div>
+                                
+                                </div>
+                                
+                                <div class="filter-tab-options-container">
+                                
+                                    <span id="title-bold">Type</span>
+                                    
+                                    <div class="filter-tab-option">
+                                    
+                                        <form class="border-form" id="top-form" onsubmit="return false">
+                                            
+                                            <div class="autocomplete">
+                                                
+                                                <select class="select-css" id="top-form-select">
+                                                    <option selected>All</option>
+                                                    <option>Condo</option>
+                                                    <option>Condos</option>
+                                                    <option>House</option>
+                                                    <option>Land</option>
+                                                    <option>Villa</option>
+                                                    <option>Villas</option>
+                                                    <option>Penthouse</option>
+                                                    <option>VIP Condo</option>
+                                                </select>
+                                        
+                                            </div>
+                                            
+                                        </form>
+                                        
                                     </div>
                                 
                                 </div>
@@ -395,10 +435,14 @@
                                     
                                         <form class="border-form" id="agent-form" onsubmit="return false">
                                     
-                                            <input type="text" placeholder="Enter Agent" id="agent-form-input">
+                                            <div class="autocomplete">
                                             
-                                            <div class="f-s-main"></div>
+                                                <select class="select-css" id="agent-form-select">
+                                                    <option selected>All</option>
+                                                </select>
 
+                                            </div>
+                                            
                                         </form>
                                         
                                     </div>
@@ -407,34 +451,47 @@
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">Fee (USD)</span>
+                                    <span id="title-bold">Status</span>
                                     
                                     <div class="filter-tab-option">
                                     
-                                        <form class="border-form" id="fee-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Fee" id="fee-form-input">
+                                        <form class="border-form" id="status-form" onsubmit="return false">
                                             
-                                            <div class="f-s-main"></div>
-
+                                            <div class="autocomplete">
+                                            
+                                                <select class="select-css" id="status-form-select">
+                                                    <option selected>All</option>
+                                                    <option>For Rent</option>
+                                                    <option>For Sale</option>
+                                                    <option>Sold</option>
+                                                </select>
+                                            
+                                            </div>
+                                            
                                         </form>
-                                        
+                                    
                                     </div>
                                 
                                 </div>
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">Confotur (Yes/No)</span>
+                                    <span id="title-bold">Confotur</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="confotur-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Yes or No?" id="confotur-form-input">
                                             
-                                            <div class="f-s-main"></div>
-
+                                            <div class="autocomplete">
+                                                
+                                                <select class="select-css" id="confotur-form-select">
+                                                    <option selected>All</option>
+                                                    <option>Yes</option>
+                                                    <option>No</option>
+                                                </select>        
+                                                
+                                            </div>
+                                            
                                         </form>
                                         
                                     </div>
@@ -443,16 +500,26 @@
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">New or Resale?</span>
+                                    <span id="title-bold">New Construction or Resale?</span>
                                     
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="nor-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="New or Resale?" id="nor-form-input">
+                                        
+                                            <div class="autocomplete">
                                             
-                                            <div class="f-s-main"></div>
+                                                <select class="select-css" id="nor-form-select">
+                                                    <option selected>All</option>
+                                                    <option>Resale</option>
+                                                    <option>Land</option>
+                                                    <option>New Construction</option>
+                                                    <option>New Construction - Resale</option>
+                                                    <option>For Rent - Long Term</option>
+                                                    <option>For Rent - Short Term</option>
+                                                </select>
 
+                                            </div>    
+                                            
                                         </form>
                                         
                                     </div>
@@ -466,11 +533,15 @@
                                     <div class="filter-tab-option">
                                     
                                         <form class="border-form" id="aic-form" onsubmit="return false">
-                                    
-                                            <input type="text" placeholder="Enter Assistant in charge" id="aic-form-input">
                                             
-                                            <div class="f-s-main"></div>
+                                            <div class="autocomplete">
+                                                
+                                                <select class="select-css" id="aic-form-select">
+                                                    <option selected>All</option>
+                                                </select>
 
+                                            </div>
+                                            
                                         </form>
                                         
                                     </div>
@@ -487,27 +558,190 @@
                 
                 <div class="container-box">
                     
-                    <div class="t-main bottom-border">
-                        
-                            <a href="#" class="card t-card t-active">
-                            
-                                <span>Listing</span>
-                            
-                            </a>
-                                                        
-                    </div>
-                    
                     <table style="width:100%" class="listing">
-                      <tr>
-                        <th></th>
-                        <th>Date</th>
-                        <th>Name</th>
-                        <th>Location</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                      </tr>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Location</th>
+                            <th>Type</th>
+                            <th>Agent</th>
+                            <th>Status</th>
+                        </tr>
+                        <tbody class="listing-table-data">
+                        </tbody>
                     </table>
                 
+                </div>
+            
+            </div>
+            
+            <div class="new-listing-b">
+            
+                <div class="nl-top-title-component">
+                    
+                    <div class="back-btn">
+                            
+                            <i class="fas fa-arrow-left"></i>
+                            
+                            Go Back
+                        
+                        </div>
+                
+                    <div class="nl-top-title-text">
+                            
+                        <div class="nl-top-title-b">
+                        
+                            <span>Add New Property</span>
+                            
+                        </div>
+                        
+                        <div class="top-component-left-button" id="save-listing">
+                    
+                            <i class="fas fa-save m-s-r"></i> <span>Save</span>
+
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="container-box">
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Name</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Name of Property" id="nl-name-form-input" autocomplete="off">
+                                                
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Location</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Location of Property" id="nl-location-form-input" autocomplete="off">
+                                                
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Bedrooms</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Number of Bedrooms" id="nl-bedrooms-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Bathrooms</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Number of Bathrooms" id="nl-bathrooms-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Size</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Size of Property" id="nl-size-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Price</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Price of Property" id="nl-price-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Fee</span>
+                                            
+                        <input type="text" placeholder="Enter Fee of Property" id="nl-fee-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Type</span><span class="red-text">(Required)</span>
+                                            
+                        <select required class="nl-select-css" id="nl-type-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                            <option>Condo</option>
+                            <option>Condos</option>
+                            <option>House</option>
+                            <option>Land</option>
+                            <option>Villa</option>
+                            <option>Villas</option>
+                            <option>Penthouse</option>
+                            <option>VIP Condo</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Assistant In-Charge</span>
+                                            
+                        <select required class="nl-select-css" id="nl-aic-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Status</span><span class="red-text">(Required)</span>
+                                            
+                        <select required class="nl-select-css" id="nl-status-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                            <option>For Rent</option>
+                            <option>For Sale</option>
+                            <option>Sold</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Agent</span><span class="red-text">(Required)</span>
+                                            
+                        <select required class="nl-select-css" id="nl-agent-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Confotur?</span><span class="red-text">(Required)</span>
+                                            
+                        <select required class="nl-select-css" id="nl-confotur-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">New Construction or Resale?</span><span class="red-text">(Required)</span>
+                                            
+                        <select required class="nl-select-css" id="nl-nor-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                            <option>Resale</option>
+                            <option>Land</option>
+                            <option>New Construction</option>
+                            <option>New Construction - Resale</option>
+                            <option>For Rent - Long Term</option>
+                            <option>For Rent - Short Term</option>
+                        </select>
+                        
+                    </div>
+                    
                 </div>
             
             </div>
@@ -524,7 +758,11 @@
                         
                         <div class="c-n-container">
                         
-                            <div id="c-note">✨ : Added ability to add property records</div>
+                            <div id="c-note">✨ : Added ability to fetch listing records</div>
+                            <div id="c-note">✨ : Added ability to add listing records</div>
+                            <div id="c-note">✨ : Added ability to clear filter options</div>
+                            <div id="c-note">✨ : Added autocomplete feature to filter options</div>
+                            <div id="c-note">🔥 : Replaced old logo with new in-line logo</div>
                         
                         </div>
                         
@@ -546,11 +784,11 @@
                 <div class="footer-container">
                     
                     <span class="copyright">
-                        Blue Caribbean Properties &copy; <span id="y"></span> | <a href="https://github.com/AvalerionV/ilya" target="_blank">Github</a>
+                         &copy; <span id="y"></span> <a href="https://www.bluecaribbeanproperties.com/" target="_blank">Blue Caribbean Properties</a> | Developed By: Dawood Khan Masood
                     </span>
                     
                     <span class="version">
-                        Version: <span id="v">{version}</span>
+                        <a href="https://github.com/AvalerionV/ilya" target="_blank">Github</a> | v<span id="v">{version}</span>
                     </span>
                 
                 </div>

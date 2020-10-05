@@ -1,7 +1,7 @@
 {
-  "name": "BCP_LMS",
+  "name": "BCP_PMS",
   "version": "0.0.7-alpha.1",
-  "description": "Listing Management System",
+  "description": "Property Management System",
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
   "dependencies": {
