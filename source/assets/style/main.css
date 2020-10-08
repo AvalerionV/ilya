@@ -16,6 +16,7 @@
 	--text-secondary: #F1F4F9;
     --text-third: #4D7DE3;
 	--transition-speed: 600ms;
+    --transition-speed-f: 300ms;
 }
 
 body {
@@ -371,7 +372,8 @@ main h1 {
 }
 
 .navbar:hover {
-    width: 10rem;
+    width: 11rem;
+    transition: var(--transition-speed-f);
 }
 
 .navbar:hover .link-text {
@@ -379,7 +381,8 @@ main h1 {
 }
 
 .navbar:hover ~ .content, .navbar:hover ~ .topbar, .navbar:hover ~ .footer {
-    margin-left: 10rem;
+    margin-left: 11rem;
+    transition: var(--transition-speed-f);
 }
 
 .navbar-nav {
@@ -394,7 +397,7 @@ main h1 {
 .nav-item:hover {
     transition: var(--transition-speed);
     background-color: var(--bg-dark);
-    padding-left: 5px;
+    padding-left: 8px;
 }
 
 .nav-item:last-child {
