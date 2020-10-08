@@ -435,6 +435,7 @@ main h1 {
 	border-radius: 5px;
 	padding: 1rem;
 	margin-bottom: 1rem;
+    transition: var(--transition-speed);
 }
 
 .m-s-r {
