@@ -320,8 +320,12 @@ button {
     margin-left: 0.5rem;
 }
 
+.filter-item:nth-child(2n) {
+    margin-right: 1rem;
+}
+
 .filter-item:last-child {
-    margin-left: 2rem;
+    margin-left: 1rem;
     width: 100%;
 }
 
@@ -669,7 +673,7 @@ main h1 {
 	font-weight: 100;
 }
 
-.listing-b {
+.listing-b, .agent-b {
     display: none;
 }
 

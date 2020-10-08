@@ -1,6 +1,7 @@
 async function closeAll() {
     $(".dashboard-b").hide();
     $(".listing-b").hide();
+    $(".agent-b").hide();
     $(".info-b").hide();
     $(".new-listing-b").hide();
 }
@@ -12,9 +13,14 @@ async function showDashboard() {
 }
 
 async function showListing() {
-    
     closeAll().then(function() {
         $(".listing-b").fadeIn(); 
+    });
+}
+
+async function showAgent() {
+    closeAll().then(function() {
+        $(".agent-b").fadeIn(); 
     });
 }
 
@@ -38,6 +44,10 @@ $( document ).ready(function() {
     $(".list-button").click(function() {
         fetchListing('listing');
         showListing();
+    });
+    
+     $(".agent-button").click(function() {
+        showAgent();
     });
     
     $(".info-button").click(function() {
