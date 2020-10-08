@@ -18,50 +18,77 @@ function checkInputs() {
     if(propertyName == "") {
         $("#nl-name-form-input").effect("shake");
         $("#nl-name-form-input").focus();
+        return false;
     } else if(propertyLocation == "") {
         $("#nl-location-form-input").effect("shake");
         $("#nl-location-form-input").focus();
+        return false;
     } else if(propertyBedrooms == "") {
         $("#nl-bedrooms-form-input").effect("shake");
         $("#nl-bedrooms-form-input").focus();
+        return false;
     } else if(propertyBathrooms == "") {
         $("#nl-bathrooms-form-input").effect("shake");
         $("#nl-bathrooms-form-input").focus();
+        return false;
     } else if(propertySize == "") {
         $("#nl-size-form-input").effect("shake");
         $("#nl-size-form-input").focus();
+        return false;
     } else if(propertyPrice == "") {
         $("#nl-price-form-input").effect("shake");
         $("#nl-price-form-input").focus();
-    } else if(propertyFee == "") {
-        $("#nl-fee-form-input").effect("shake");
-        $("#nl-fee-form-input").focus();
+        return false;
     } else if(propertyTOP == "") {
         $("#nl-type-form-select").effect("shake");
         $("#nl-type-form-select").focus();
-    } else if(propertyAIC == "") {
-        $("#nl-aic-form-select").effect("shake");
-        $("#nl-aic-form-select").focus();
+        return false;
     } else if(propertyStatus == "") {
         $("#nl-status-form-select").effect("shake");
         $("#nl-status-form-select").focus();
+        return false;
     } else if(propertyAgent == "") {
         $("#nl-agent-form-select").effect("shake");
         $("#nl-agent-form-select").focus();
+        return false;
     } else if(propertyConfotur == "") {
         $("#nl-confotur-form-select").effect("shake");
         $("#nl-confotur-form-select").focus();
+        return false;
     } else if(propertyNOR == "") {
         $("#nl-nor-form-select").effect("shake");
         $("#nl-nor-form-select").focus();
+        return false;
     }
+    
+    return true;
 }
 
 $( document ).ready(function() {
     
     $("#save-listing").on("click", function() {
         
-        checkInputs();
+        if(checkInputs() == false) {
+            return;
+        }
+        
+        db.collection("listing")
+        .doc()
+        .set({ 
+            propertyName: propertyName,
+            propertyLocation : propertyLocation,
+            propertyBedrooms : propertyBedrooms,
+            propertyBathrooms : propertyBathrooms,
+            propertySize : propertySize,
+            propertyPrice : propertyPrice,
+            propertyFee : propertyFee,
+            propertyTOP : propertyTOP,
+            propertyAIC : propertyAIC,
+            propertyStatus : propertyStatus,
+            propertyAgent : propertyAgent,
+            propertyConfotur : propertyConfotur,
+            propertyNOR : propertyNOR
+        })
         
     })
     
