@@ -705,7 +705,7 @@ main h1 {
 
 .footer-container {
     display: flex;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }
 
 .copyright {
@@ -828,7 +828,7 @@ main h1 {
 }
 
 .top-title-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 1rem;
     padding-top: 1rem;
