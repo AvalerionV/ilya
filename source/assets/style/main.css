@@ -629,6 +629,7 @@ main h1 {
 	background-image: linear-gradient(var(--bg-primary), var(--bg-dark));
 	color: white;
 	align-items: center;
+    transition: var(--transition-speed);
 }
 
 @media only screen and (max-width: 884px) {
