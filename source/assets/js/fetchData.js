@@ -53,7 +53,6 @@ function getFormattedDate() {
 
 function renderList(doc) {
     
-    $(".listing .listing-table-data").empty(); // clear the table data
     locationArray = []; // empty the LocationArray
     
     $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().typeofproperty +'</td><td></td><td>' + doc.data().status + '</td></tr>')
@@ -61,11 +60,18 @@ function renderList(doc) {
     locationArray.push(doc.data().location);
 }
 
+function renderAgent(doc) {
+    
+    $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>' + doc.data().status + '</td></tr>')
+}
+
 function fetchListing(collection) {
     
     let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
     
     documents.then(function(doc) {
+        
+        $(".listing .listing-table-data").empty(); // clear the table data
 
         doc.docs.forEach(doc => {
             renderList(doc);
@@ -73,6 +79,22 @@ function fetchListing(collection) {
         
         autocomplete(document.getElementById("location-form-input"), locationArray);
         autocomplete(document.getElementById("nl-location-form-input"), locationArray);
+        
+    })
+    
+}
+
+function fetchAgent(collection) {
+    
+    let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
+    
+    documents.then(function(doc) {
+        
+        $(".agent .agent-table-data").empty(); // clear the table data
+
+        doc.docs.forEach(doc => {
+            renderAgent(doc);
+        })
         
     })
     

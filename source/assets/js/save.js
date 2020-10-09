@@ -1,6 +1,8 @@
 var propertyName; var propertyLocation; var propertyBedrooms; var propertyBathrooms; var propertySize; var propertyPrice; var propertyFee; var propertyTOP; var propertyAIC; var propertyStatus; var propertyAgent; var propertyConfotur; var propertyNOR;
 
-function checkInputs() {
+var agentName; var agentLocation; var agentStatus;
+
+function checkListInputs() {
     propertyName = $("#nl-name-form-input").val();
     propertyLocation = $("#nl-location-form-input").val();
     propertyBedrooms = $("#nl-bedrooms-form-input").val();
@@ -64,32 +66,73 @@ function checkInputs() {
     return true;
 }
 
+function checkAgentInputs() {
+    agentName = $("#na-name-form-input").val();
+    agentLocation = $("#na-location-form-input").val();
+    agentStatus = $("#na-status-form-select").val();
+    
+    if(agentName == "") {
+        $("#na-name-form-input").effect("shake");
+        $("#na-name-form-input").focus();
+        return false;
+    } else if(agentLocation == "") {
+        $("#na-location-form-input").effect("shake");
+        $("#na-location-form-input").focus();
+        return false;
+    } else if(agentStatus == "") {
+        $("#na-status-form-select").effect("shake");
+        $("#na-status-form-select").focus();
+        return false;
+    }
+    
+    return true;
+}
+
 $( document ).ready(function() {
     
     $("#save-listing").on("click", function() {
         
-        if(checkInputs() == false) {
+        if(checkListInputs() == false) {
             return;
         }
         
         db.collection("listing")
         .doc()
         .set({ 
-            propertyName: propertyName,
-            propertyLocation : propertyLocation,
-            propertyBedrooms : propertyBedrooms,
-            propertyBathrooms : propertyBathrooms,
-            propertySize : propertySize,
-            propertyPrice : propertyPrice,
-            propertyFee : propertyFee,
-            propertyTOP : propertyTOP,
-            propertyAIC : propertyAIC,
-            propertyStatus : propertyStatus,
-            propertyAgent : propertyAgent,
-            propertyConfotur : propertyConfotur,
-            propertyNOR : propertyNOR
+            name: propertyName,
+            location : propertyLocation,
+            bedrooms : propertyBedrooms,
+            bathrooms : propertyBathrooms,
+            size : propertySize,
+            price : propertyPrice,
+            fee : propertyFee,
+            top : propertyTOP,
+            aic : propertyAIC,
+            status : propertyStatus,
+            agent : propertyAgent,
+            confotur : propertyConfotur,
+            nor : propertyNOR
         })
         
-    })
+    });
+    
+    $("#save-agent").on("click", function() {
+        
+        if(checkAgentInputs() == false) {
+            return;
+        }
+        
+        db.collection("agent")
+        .doc()
+        .set({ 
+            name: agentName,
+            location : agentLocation,
+            status : agentStatus
+        }).then(function() {
+            fetchAgent('agent');
+            showAgent();
+        })
+        
+    });
     
 });

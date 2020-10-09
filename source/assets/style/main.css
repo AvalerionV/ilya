@@ -690,7 +690,7 @@ main h1 {
     margin-top: 1rem;
 }
 
-.listing th,td {
+th,td {
     text-align: left;
     padding: 12px 15px;
 }
@@ -728,7 +728,7 @@ main h1 {
     text-decoration: none;
 }
 
-.navbar, .topbar, .footer, .dashboard-b, .info-b {
+.navbar, .topbar, .footer, .dashboard-b, .info-b, .new-agent-b {
     display: none;
 }
 

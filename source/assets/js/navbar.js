@@ -4,6 +4,7 @@ async function closeAll() {
     $(".agent-b").hide();
     $(".info-b").hide();
     $(".new-listing-b").hide();
+    $(".new-agent-b").hide();
 }
 
 async function showDashboard() {
@@ -36,6 +37,12 @@ async function showNewList() {
     });
 }
 
+async function showNewAgent() {
+    closeAll().then(function() {
+        $(".new-agent-b").fadeIn();
+    });
+}
+
 $( document ).ready(function() {
     $(".home-button").click(function() {
         showDashboard();
@@ -47,6 +54,7 @@ $( document ).ready(function() {
     });
     
      $(".agent-button").click(function() {
+        fetchAgent('agent');
         showAgent();
     });
     
@@ -58,8 +66,18 @@ $( document ).ready(function() {
         showNewList();
     })
     
-    $(".back-btn").click(function() {
+    $("#new-agent").click(function() {
+        showNewAgent();
+    })
+    
+    $("#back-list").click(function() {
+        fetchListing('listing');
         showListing();
+    })
+    
+    $("#back-agent").click(function() {
+        fetchAgent('agent');
+        showAgent();
     })
     
 })

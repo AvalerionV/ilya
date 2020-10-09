@@ -128,14 +128,14 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link list-button">
                         <i class="fas fa-list r-icon"></i>
-                        <span class="link-text">Property</span>
+                        <span class="link-text">Listings</span>
                     </a>
                 </li>
                 
                 <li class="nav-item">
                     <a href="#" class="nav-link agent-button">
                         <i class="fas fa-user r-icon"></i>
-                        <span class="link-text">Agent</span>
+                        <span class="link-text">Agents</span>
                     </a>
                 </li>
 
@@ -210,13 +210,13 @@
                 
                     <div class="top-title-text">
                     
-                        <span>Property Management Panel</span>
+                        <span>Listing Management Panel</span>
                     
                     </div>
                     
                     <div class="top-component-left-button" id="new-listing">
                     
-                        <i class="fas fa-plus m-s-r"></i> <span>New Property</span>
+                        <i class="fas fa-plus m-s-r"></i> <span>New Listing</span>
                     
                     </div>
                 
@@ -579,7 +579,7 @@
             
                 <div class="nl-top-title-component">
                     
-                    <div class="back-btn">
+                    <div class="back-btn" id="back-list">
                             
                             <i class="fas fa-arrow-left"></i>
                             
@@ -756,7 +756,7 @@
                     
                     </div>
                     
-                    <div class="top-component-left-button" id="new-listing">
+                    <div class="top-component-left-button" id="new-agent">
                     
                         <i class="fas fa-plus m-s-r"></i> <span>New Agent</span>
                     
@@ -785,17 +785,80 @@
                 
                 <div class="container-box">
                     
-                    <table style="width:100%" class="listing">
+                    <table style="width:100%" class="agent">
                         <tr>
                             <th>Fullname</th>
                             <th>Location</th>
-                            <th>Properties</th>
                             <th>Status</th>
                         </tr>
-                        <tbody class="listing-table-data">
+                        <tbody class="agent-table-data">
                         </tbody>
                     </table>
                 
+                </div>
+            
+            </div>
+            
+            <div class="new-agent-b">
+            
+                <div class="nl-top-title-component">
+                    
+                    <div class="back-btn" id="back-agent">
+                            
+                            <i class="fas fa-arrow-left"></i>
+                            
+                            Go Back
+                        
+                        </div>
+                
+                    <div class="nl-top-title-text">
+                            
+                        <div class="nl-top-title-b">
+                        
+                            <span>Add New Agent</span>
+                            
+                        </div>
+                        
+                        <div class="top-component-left-button" id="save-agent">
+                    
+                            <i class="fas fa-save m-s-r"></i> <span>Save</span>
+
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="container-box">
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Name</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Name of Property" id="na-name-form-input" autocomplete="off">
+                                                
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Location</span><span class="red-text">(Required)</span>
+                                            
+                        <input type="text" placeholder="Enter Location of Property" id="na-location-form-input" autocomplete="off">
+                                                
+                    </div>
+                    
+                    <div class="new-list-form">
+                            
+                        <span id="title-bold-l">Status</span><span class="red-text">(Required)</span>
+                                            
+                        <select required class="nl-select-css" id="na-status-form-select">
+                            <option value="" selected hidden>Select an option</option>
+                            <option>Active</option>
+                            <option>Inactive</option>
+                        </select>
+                        
+                    </div>
+                    
                 </div>
             
             </div>
