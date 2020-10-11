@@ -112,6 +112,9 @@ $( document ).ready(function() {
             agent : propertyAgent,
             confotur : propertyConfotur,
             nor : propertyNOR
+        }).then(function() {
+            fetchListing('listing');
+            showListing();
         })
         
     });

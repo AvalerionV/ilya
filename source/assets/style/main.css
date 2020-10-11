@@ -372,7 +372,7 @@ main h1 {
 }
 
 .navbar:hover {
-    width: 11rem;
+    width: 10rem;
     transition: var(--transition-speed-f);
 }
 
@@ -381,7 +381,7 @@ main h1 {
 }
 
 .navbar:hover ~ .content, .navbar:hover ~ .topbar, .navbar:hover ~ .footer {
-    margin-left: 11rem;
+    margin-left: 10rem;
     transition: var(--transition-speed-f);
 }
 

@@ -53,9 +53,7 @@ function getFormattedDate() {
 
 function renderList(doc) {
     
-    locationArray = []; // empty the LocationArray
-    
-    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().typeofproperty +'</td><td></td><td>' + doc.data().status + '</td></tr>')
+    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + doc.data().agent + '</td><td>' + doc.data().status + '</td></tr>')
     
     locationArray.push(doc.data().location);
 }
@@ -63,6 +61,8 @@ function renderList(doc) {
 function renderAgent(doc) {
     
     $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>' + doc.data().status + '</td></tr>')
+    
+    agentArray.push({name:doc.data().name, id:doc.id});
 }
 
 function fetchListing(collection) {
@@ -70,6 +70,8 @@ function fetchListing(collection) {
     let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
     
     documents.then(function(doc) {
+        
+        locationArray = []; // empty the LocationArray
         
         $(".listing .listing-table-data").empty(); // clear the table data
 
@@ -89,12 +91,35 @@ function fetchAgent(collection) {
     let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
     
     documents.then(function(doc) {
+    
+        agentArray = [];
         
         $(".agent .agent-table-data").empty(); // clear the table data
+        
+        $('#filter-agent-form-select').empty(); // clear select form options
+        $('#filter-aic-form-select').empty(); // clear select form options
+        $('#nl-aic-form-select').empty(); // clear select form options
+        $('#nl-agent-form-select').empty(); // clear select form options
 
         doc.docs.forEach(doc => {
             renderAgent(doc);
         })
+        
+        Object.keys(agentArray).forEach(function (key) {
+            $('#filter-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+            $('#filter-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            
+            $('#filter-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+            $('#filter-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            
+            $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+            $('#nl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            
+            $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+            $('#nl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+        });
+        
+        //$('#mySelect').append($("<option></option>").attr("value", key).text(value)); 
         
     })
     
