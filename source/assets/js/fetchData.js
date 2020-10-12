@@ -79,11 +79,22 @@ function getAgentStatus(status) {
     }
 }
 
+function checkLocationExists(loc) {
+    if(locationArray.indexOf(loc) !== -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function renderList(doc) {
     
     $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>')
     
-    locationArray.push(doc.data().location);
+    if (checkLocationExists(doc.data().location) == false) {
+        locationArray.push(doc.data().location);
+    }
+    
 }
 
 function renderAgent(doc) {
@@ -96,10 +107,9 @@ function renderAgent(doc) {
 function fetchListing(collection) {
     
     let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
+    locationArray = []; // empty the LocationArray
     
     documents.then(function(doc) {
-        
-        locationArray = []; // empty the LocationArray
         
         $(".listing .listing-table-data").empty(); // clear the table data
 
@@ -107,10 +117,9 @@ function fetchListing(collection) {
             renderList(doc);
         })
         
-        autocomplete(document.getElementById("location-form-input"), locationArray);
-        autocomplete(document.getElementById("nl-location-form-input"), locationArray);
-        
     })
+    
+    autocomplete(document.getElementById("location-form-input"), locationArray);
     
 }
 
