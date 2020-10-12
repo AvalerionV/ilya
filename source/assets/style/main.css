@@ -711,6 +711,10 @@ th,td {
     background-color: #fcfcfc;
 }
 
+.agent tr:nth-of-type(even) {
+    background-color: #fcfcfc;
+}
+
 .listing .item-data:hover {
     background-color: var(--table-primary);
     cursor: pointer;
