@@ -101,6 +101,7 @@ $( document ).ready(function() {
         .set({ 
             name: propertyName,
             location : propertyLocation,
+            date: firebase.firestore.FieldValue.serverTimestamp(),
             bedrooms : propertyBedrooms,
             bathrooms : propertyBathrooms,
             size : propertySize,
