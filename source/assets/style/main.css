@@ -967,3 +967,17 @@ th,td {
     color:white;
     padding: 0.2rem 1rem;
 }
+
+#status-active span {
+    background-color: var(--bg-primary);
+    border-radius: 15px;
+    color:white;
+    padding: 0.2rem 1rem;
+}
+
+#status-inactive span {
+    background-color: slategray;
+    border-radius: 15px;
+    color:white;
+    padding: 0.2rem 1rem;
+}

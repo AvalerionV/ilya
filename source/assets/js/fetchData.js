@@ -61,7 +61,7 @@ function getAgent(docID) {
     return agent;
 }
 
-function getStatus(status) {
+function getListingStatus(status) {
     if(status == 'For Rent') {
         return '<td id="status-for-rent"><span>Rent</span></td>';
     } else if(status == 'For Sale') {
@@ -71,16 +71,24 @@ function getStatus(status) {
     }
 }
 
+function getAgentStatus(status) {
+    if(status == 'Active') {
+        return '<td id="status-active"><span>Active</span></td>';
+    } else if(status == 'Inactive') {
+        return '<td id="status-inactive"><span>Inactive</span></td>';
+    }
+}
+
 function renderList(doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getStatus(doc.data().status) + '</tr>')
+    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>')
     
     locationArray.push(doc.data().location);
 }
 
 function renderAgent(doc) {
     
-    $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>' + doc.data().status + '</td></tr>')
+    $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td>' + getAgentStatus(doc.data().status) + '</tr>')
     
     agentArray.push({name:doc.data().name, id:doc.id});
 }
