@@ -1,3 +1,11 @@
+function addValue(obj, key, value) {
+    if (obj.hasOwnProperty(key)) {
+        obj[key].push(value);
+    } else {
+        obj[key] = [value];
+    }
+};
+
 $( document ).ready(function() {
     $(".filter").on("click", function() {
         $(".filter").toggleClass("filter-active");
@@ -15,6 +23,10 @@ $( document ).ready(function() {
             $(this).parent().parent().find("#clear-button").show();
         }
         
+        addValue(options, "where", ["location", "==", val]);
+        
+        fetchListing('listing');
+        
         $("#location-form-input").val("");
         
     })
@@ -29,6 +41,10 @@ $( document ).ready(function() {
         if ($(this).find(".f-s-main").not(':empty')) {
             $(this).parent().parent().find("#clear-button").show();
         }
+        
+        addValue(options, "where", ["bedrooms", "==", val]);
+        
+        fetchListing('listing');
         
         $("#bedrooms-form-input").val("");
         
@@ -45,6 +61,10 @@ $( document ).ready(function() {
             $(this).parent().parent().find("#clear-button").show();
         }
         
+        addValue(options, "where", ["bathrooms", "==", val]);
+        
+        fetchListing('listing');
+        
         $("#bathrooms-form-input").val("");
         
     })
@@ -59,6 +79,10 @@ $( document ).ready(function() {
         if ($(this).find(".f-s-main").not(':empty')) {
             $(this).parent().parent().find("#clear-button").show();
         }
+        
+        addValue(options, "where", ["size", "==", val]);
+        
+        fetchListing('listing');
         
         $("#size-form-input").val("");
         
@@ -75,6 +99,10 @@ $( document ).ready(function() {
             $(this).parent().parent().find("#clear-button").show();
         }
         
+        addValue(options, "where", ["price", "==", val]);
+        
+        fetchListing('listing');
+        
         $("#price-form-input").val("");
         
     })
@@ -89,6 +117,10 @@ $( document ).ready(function() {
         if ($(this).find(".f-s-main").not(':empty')) {
             $(this).parent().parent().find("#clear-button").show();
         }
+        
+        addValue(options, "where", ["fee", "==", val]);
+        
+        fetchListing('listing');
         
         $("#fee-form-input").val("");
         

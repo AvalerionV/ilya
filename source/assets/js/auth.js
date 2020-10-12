@@ -30,29 +30,16 @@ function auth() {
         var errorCode = error.code;
         var errorMessage = error.message;
         
-        console.log(errorCode);
+        postLoginLoad();
         
-        register(email, password).then(function() {
-            postLoginLoad();
-            return false;
-        });
-
-        // ...
-    });
-    
-}
-
-function register(email, password) {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
+        console.log(errorCode);
         
         $(".error").slideDown();
         $("#e-msg").html(errorMessage);
 
         // ...
     });
+    
 }
 
 function logout() {

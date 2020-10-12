@@ -1,5 +1,6 @@
-//let options = {where: [["location", "==", "Cocotal Golf Course - Bavaro"]]};
-let options = {};
+
+//let options = {where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]};
+let options = [];
 
 function readDocuments(collection, options = {}) {
     let {where, orderBy, limit} = options;
