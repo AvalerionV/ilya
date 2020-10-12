@@ -51,9 +51,19 @@ function getFormattedDate() {
     return str;
 }
 
+function getAgent(docID) {
+    var agent = null;
+    Object.keys(agentArray).forEach(function (key) {
+        if(agentArray[key].id == docID) {
+            agent = agentArray[key].name;
+        }
+    });
+    return agent;
+}
+
 function renderList(doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + doc.data().agent + '</td><td>' + doc.data().status + '</td></tr>')
+    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td><td>' + doc.data().status + '</td></tr>')
     
     locationArray.push(doc.data().location);
 }

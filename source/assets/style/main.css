@@ -296,6 +296,10 @@ button {
 	align-items: center;
 }
 
+.top-item:nth-child(2n) {
+    padding-left:1rem;
+}
+
 .top-item:last-child {
 	padding-left:1rem;
 	margin-left: auto;
@@ -690,6 +694,14 @@ main h1 {
     margin-top: 1rem;
 }
 
+.agent {
+    font-size: 1rem;
+    border-collapse:separate; 
+    border-spacing: 0 0;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
 th,td {
     text-align: left;
     padding: 12px 15px;
@@ -700,6 +712,11 @@ th,td {
 }
 
 .listing .item-data:hover {
+    background-color: var(--table-primary);
+    cursor: pointer;
+}
+
+.agent-table-data .item-data:hover {
     background-color: var(--table-primary);
     cursor: pointer;
 }
