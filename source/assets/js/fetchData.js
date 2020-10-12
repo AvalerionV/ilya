@@ -91,7 +91,7 @@ function renderList(doc) {
     
     $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>')
     
-    if (checkLocationExists(doc.data().location) == false) {
+    if (!checkLocationExists(doc.data().location)) {
         locationArray.push(doc.data().location);
     }
     
