@@ -690,16 +690,16 @@ main h1 {
     font-size: 1rem;
     border-collapse:separate; 
     border-spacing: 0 0;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 .agent {
     font-size: 1rem;
     border-collapse:separate; 
     border-spacing: 0 0;
+}
+
+tr {
     margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 th,td {
@@ -945,4 +945,25 @@ th,td {
 .red-text {
     margin-left: 10px;
     color: red;
+}
+
+#status-for-rent span {
+    background-color: var(--bg-primary);
+    border-radius: 15px;
+    color:white;
+    padding: 0.2rem 1rem;
+}
+
+#status-for-sale span {
+    background-color: tomato;
+    border-radius: 15px;
+    color:white;
+    padding: 0.2rem 1rem;
+}
+
+#status-sold span {
+    background-color: slategray;
+    border-radius: 15px;
+    color:white;
+    padding: 0.2rem 1rem;
 }

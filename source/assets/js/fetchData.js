@@ -61,9 +61,19 @@ function getAgent(docID) {
     return agent;
 }
 
+function getStatus(status) {
+    if(status == 'For Rent') {
+        return '<td id="status-for-rent"><span>Rent</span></td>';
+    } else if(status == 'For Sale') {
+        return '<td id="status-for-sale"><span>Sale</span></td>';
+    } else if(status == 'Sold') {
+        return '<td id="status-sold"><span>Sold</span></td>';
+    }
+}
+
 function renderList(doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td><td>' + doc.data().status + '</td></tr>')
+    $('.listing .listing-table-data').append('<tr class="item-data"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getStatus(doc.data().status) + '</tr>')
     
     locationArray.push(doc.data().location);
 }
@@ -110,22 +120,20 @@ function fetchAgent(collection) {
         $('#filter-aic-form-select').empty(); // clear select form options
         $('#nl-aic-form-select').empty(); // clear select form options
         $('#nl-agent-form-select').empty(); // clear select form options
+        
+        $('#filter-agent-form-select').append("<option selected>All</option>");
+        $('#filter-aic-form-select').append("<option selected>All</option>");
+        $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+        $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
 
         doc.docs.forEach(doc => {
             renderAgent(doc);
-        })
+        })        
         
         Object.keys(agentArray).forEach(function (key) {
-            $('#filter-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
             $('#filter-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            
-            $('#filter-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
             $('#filter-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            
-            $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
             $('#nl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            
-            $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
             $('#nl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
         });
         
