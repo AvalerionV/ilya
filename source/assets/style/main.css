@@ -949,35 +949,31 @@ th,td {
 
 #status-for-rent span {
     background-color: var(--bg-primary);
-    border-radius: 15px;
     color:white;
+    border-radius: 15px;
     padding: 0.2rem 1rem;
 }
 
 #status-for-sale span {
     background-color: tomato;
-    border-radius: 15px;
     color:white;
+    border-radius: 15px;
     padding: 0.2rem 1rem;
 }
 
 #status-sold span {
     background-color: slategray;
-    border-radius: 15px;
     color:white;
+    border-radius: 15px;
     padding: 0.2rem 1rem;
 }
 
 #status-active span {
-    background-color: var(--bg-primary);
-    border-radius: 15px;
-    color:white;
-    padding: 0.2rem 1rem;
+    color: green;
+    font-weight: bold;
 }
 
 #status-inactive span {
-    background-color: slategray;
-    border-radius: 15px;
-    color:white;
-    padding: 0.2rem 1rem;
+    color: gray;
+    font-weight: bold;
 }
