@@ -560,6 +560,24 @@ main h1 {
     margin-bottom: 2rem;
 }
 
+.view-list-form {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+.view-list-form input {
+    padding: 10px 0;
+    font-size: 1rem;
+    border-bottom: 1px solid #f1f1f1;
+    width: 100%;
+}
+
+.view-list-form:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
 .card {
 	display: flex;
 	flex-direction: column;
@@ -682,7 +700,7 @@ main h1 {
 	font-weight: 100;
 }
 
-.listing-b, .agent-b {
+.listing-b, .agent-b, .view-listing-b {
     display: none;
 }
 
@@ -834,11 +852,29 @@ th,td {
 }
 
 .top-component-left-button {
-    margin-left: auto;
     padding: 0.8rem 1.3rem;
     border-radius: 5px;
     transition: var(--transition-speed);
     color: white;
+}
+
+#print-listing {
+    background: -webkit-linear-gradient(to right, orange, #da8d00);
+    background: -o-linear-gradient(to right, orange, #da8d00);
+    background: -moz-linear-gradient(to right, orange, #da8d00);
+    background: linear-gradient(to right, orange, #da8d00);
+    margin-left: 1rem;
+}
+
+#delete-listing {
+    background: -webkit-linear-gradient(to right, #e34d4d, #b93d3d);
+    background: -o-linear-gradient(to right, #e34d4d, #b93d3d);
+    background: -moz-linear-gradient(to right, #e34d4d, #b93d3d);
+    background: linear-gradient(to right, #e34d4d, #b93d3d);
+    margin-left: 1rem;
+}
+
+#save-listing, #new-listing, #new-agent, #save-agent, #edit-listing {
     background: -webkit-linear-gradient(to right, var(--bg-primary), var(--bg-dark));
     background: -o-linear-gradient(to right, var(--bg-primary), var(--bg-dark));
     background: -moz-linear-gradient(to right, var(--bg-primary), var(--bg-dark));
@@ -854,6 +890,13 @@ th,td {
     font-weight: bold;
     margin-bottom: 1rem;
     padding-top: 1rem;
+    margin-right: auto;
+}
+
+.vl-top-title-text {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
 .nl-top-title-text {
@@ -937,9 +980,16 @@ th,td {
     margin-left: 5px;
 }
 
+.vl-top-title-b {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-right: auto;
+}
+
 .nl-top-title-b {
     font-size: 2rem;
     font-weight: bold;
+    margin-right: auto;
 }
 
 .new-listing-b {

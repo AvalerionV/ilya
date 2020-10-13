@@ -28,6 +28,7 @@
         <script src="./assets/js/time.js"></script>
         <script src="./assets/js/navbar.js"></script>
         <script src="./assets/js/filter.js"></script>
+        <script src="./assets/js/edit.js"></script>
         
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
@@ -582,6 +583,189 @@
             
             </div>
             
+            <div class="view-listing-b">
+            
+                <div class="vl-top-title-component">
+                    
+                    <div class="back-btn" id="back-list-view">
+                            
+                            <i class="fas fa-arrow-left"></i>
+                            
+                            Go Back
+                        
+                        </div>
+                
+                    <div class="vl-top-title-text">
+                            
+                        <div class="vl-top-title-b">
+                        
+                            <span>Property Information</span>
+                            
+                        </div>
+                        
+                        <div class="top-component-left-button" id="edit-listing">
+                    
+                            <i class="fas fa-save m-s-r"></i> <span>Save</span>
+
+                        </div>
+                        
+                        <div class="top-component-left-button" id="delete-listing">
+                    
+                            <i class="fas fa-trash m-s-r"></i> <span>Delete</span>
+
+                        </div>
+                        
+                        <div class="top-component-left-button" id="print-listing">
+                    
+                            <i class="fas fa-print m-s-r"></i> <span>Print</span>
+
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="container-box">
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Name</span>
+                                            
+                        <input type="text" placeholder="Enter Name of Property" id="vl-name-form-input" autocomplete="off">
+                                                
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Location</span>
+                                            
+                        <input type="text" placeholder="Enter Location of Property" id="vl-location-form-input" autocomplete="off">
+                                                
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Bedrooms</span>
+                                            
+                        <input type="text" placeholder="Enter Number of Bedrooms" id="vl-bedrooms-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Bathrooms</span>
+                                            
+                        <input type="text" placeholder="Enter Number of Bathrooms" id="vl-bathrooms-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Size</span>
+                                            
+                        <input type="text" placeholder="Enter Size of Property" id="vl-size-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Price</span>
+                                            
+                        <input type="text" placeholder="Enter Price of Property" id="vl-price-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Fee</span>
+                                            
+                        <input type="text" placeholder="Enter Fee of Property" id="vl-fee-form-input" autocomplete="off">
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Type</span>
+                                            
+                        <select required class="vl-select-css" id="nl-type-form-select">
+                            <option value="" hidden>Select an option</option>
+                            <option>Condo</option>
+                            <option>Condos</option>
+                            <option>House</option>
+                            <option>Land</option>
+                            <option>Villa</option>
+                            <option>Villas</option>
+                            <option>Penthouse</option>
+                            <option>VIP Condo</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Assistant In-Charge</span>
+                                            
+                        <select required class="vl-select-css" id="nl-aic-form-select">
+                            <option value="" hidden>Select an option</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Status</span>
+                                            
+                        <select required class="vl-select-css" id="nl-status-form-select">
+                            <option value="" hidden>Select an option</option>
+                            <option>For Rent</option>
+                            <option>For Sale</option>
+                            <option>Sold</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Agent</span>
+                                            
+                        <select required class="vl-select-css" id="nl-agent-form-select">
+                            <option value="" hidden>Select an option</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">Confotur?</span>
+                                            
+                        <select required class="vl-select-css" id="nl-confotur-form-select">
+                            <option value="" hidden>Select an option</option>
+                            <option>Yes</option>
+                            <option>No</option>
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="view-list-form">
+                            
+                        <span id="title-bold-l">New Construction or Resale?</span>
+                                            
+                        <select required class="vl-select-css" id="nl-nor-form-select">
+                            <option value="" hidden>Select an option</option>
+                            <option>Resale</option>
+                            <option>Land</option>
+                            <option>New Construction</option>
+                            <option>New Construction - Resale</option>
+                            <option>For Rent - Long Term</option>
+                            <option>For Rent - Short Term</option>
+                        </select>
+                        
+                    </div>
+                    
+                </div>
+            
+            </div>
+            
             <div class="new-listing-b">
             
                 <div class="nl-top-title-component">
@@ -604,7 +788,7 @@
                         
                         <div class="top-component-left-button" id="save-listing">
                     
-                            <i class="fas fa-save m-s-r"></i> <span>Save</span>
+                            <i class="fas fa-save m-s-r"></i> <span>Create</span>
 
                         </div>
                     
@@ -828,7 +1012,7 @@
                         
                         <div class="top-component-left-button" id="save-agent">
                     
-                            <i class="fas fa-save m-s-r"></i> <span>Save</span>
+                            <i class="fas fa-save m-s-r"></i> <span>Create</span>
 
                         </div>
                     
@@ -881,7 +1065,10 @@
                         <h2 id="c-title">Current Release <span id="c-version">(v<span id="c-v">{version}</span>)</span></h2>
                         
                         <div class="c-n-container">
-                        
+                            
+                            <div id="c-note">✨ : Added ability to view property information</div>
+                            <div id="c-note">✨ : Added ability to edit property information</div>
+                            <div id="c-note">✨ : Added ability to delete property information</div>
                             <div id="c-note">🐛 : Fixed error with authentication</div>
                         
                         </div>

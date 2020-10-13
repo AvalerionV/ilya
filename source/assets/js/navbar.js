@@ -5,6 +5,7 @@ async function closeAll() {
     $(".info-b").hide();
     $(".new-listing-b").hide();
     $(".new-agent-b").hide();
+    $(".view-listing-b").hide();
 }
 
 async function showDashboard() {
