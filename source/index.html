@@ -38,80 +38,74 @@
         
         <div class="loading">Loading&#8230;</div>
         
-        <div class="login-b">
-        
-            <div class="l-card">
+        <div class="login-b l-card">
             
-                <div class="container-box login-container">
-                    
-                    <div class="card">
-                        
-                        <span class="title center-t">Authentication</span>
-                        
-                        <div class="form">
-                        
-                            <div class="social-b">
-                            
-                                <a href="#" class="btn-fb">
-                                    
-                                    <i class="fab fa-facebook-square"></i> Facebook
-                                
-                                </a>
-                                
-                                <a href="#" class="btn-g" onclick="authGoogle(); return false">
-                                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <div class="container-box login-container">
 
-                                    <img src="./assets/images/icon-google.png" alt="GOOGLE"> Google
-                                
-                                </a>
-                            
+                <div class="card">
+
+                    <div class="top-auth-logo-title">
+
+                        <img src="./assets/images/logo.svg" border="0">
+
+                    </div>
+
+                    <div class="form">
+
+                        <form onsubmit="return false" autocomplete="off">
+
+                            <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                                <input class="input100" type="text" id="l-user" placeholder="Your Email Address">
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                                <input class="input100" type="password" id="p-user" placeholder="Your Password">
+                                <span class="focus-input100"></span>
+                            </div>
+
+                            <div class="container-login100-form-btn m-t-17">
+                                <button class="login100-form-btn" onclick="auth();">
+                                    Login
+                                </button>
+                            </div>
+
+                            <div class="extra-a">
+
+                                <div class="extra-option">
+
+                                    <input type="checkbox" checked id="remember" name="remember" value="remember"> <label for="remember">Remember me</label>
+
+                                </div>
+
+                                <div class="extra-option">
+
+                                    <span><a href="#">Need help?</a></span>
+
+                                </div>
+
                             </div>
                             
-                            <form onsubmit="return false" autocomplete="off">
-                            
-                                <div class="p-t-13 p-b-9">
-                                    <span class="txt1">
-                                        Username
-                                    </span>
-                                </div>
-                                <div class="wrap-input100 validate-input" data-validate = "Username is required">
-                                    <input class="input100" type="text" id="l-user" placeholder="Your Email Address">
-                                    <span class="focus-input100"></span>
-                                </div>
+                            <div class="error">
 
-                                <div class="p-t-13 p-b-9">
-                                    <span class="txt1">
-                                        Password
-                                    </span>
+                                <i class="fas fa-times e-icon"></i>
 
-                                </div>
-                                <div class="wrap-input100 validate-input" data-validate = "Password is required">
-                                    <input class="input100" type="password" id="p-user" placeholder="Your Password">
-                                    <span class="focus-input100"></span>
-                                </div>
+                                <span id="e-msg"></span>
 
-                                <div class="container-login100-form-btn m-t-17">
-                                    <button class="login100-form-btn" onclick="auth();">
-                                        Next
-                                    </button>
-                                </div>
-                                
-                                <div class="error">
-                                
-                                    <i class="fas fa-times e-icon"></i>
-                                    
-                                    <span id="e-msg"></span>
-                                
-                                </div>
-                            
-                            </form>
-                            
-                        </div>
-                    
+                            </div>
+
+                            <div class="notice">
+
+                                <span>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more.</a></span>
+
+                            </div>
+
+                        </form>
+
                     </div>
-                
+
                 </div>
-            
+
             </div>
         
         </div>
@@ -1069,6 +1063,7 @@
                             <div id="c-note">✨ : Added ability to view property information</div>
                             <div id="c-note">✨ : Added ability to edit property information</div>
                             <div id="c-note">✨ : Added ability to delete property information</div>
+                            <div id="c-note">✨ : Authorization panel design changes</div>
                             <div id="c-note">🐛 : Fixed error with authentication</div>
                         
                         </div>
@@ -1091,7 +1086,7 @@
                 <div class="footer-container">
                     
                     <span class="copyright">
-                         &copy; <span id="y"></span> <a href="https://www.bluecaribbeanproperties.com/" target="_blank">Blue Caribbean Properties</a> | Developed By: Dawood Khan Masood
+                         &copy; <span id="y"></span> <a href="https://www.bluecaribbeanproperties.com/" target="_blank">Blue Caribbean Properties</a> | Developed By: Dawood Khan Masood & Waqar Jan
                     </span>
                     
                     <span class="version">

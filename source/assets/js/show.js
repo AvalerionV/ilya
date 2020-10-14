@@ -1,10 +1,10 @@
 function afterLogin(avatar) {
     $(".login-b").fadeOut("slow", function() {
         successLoginLoad();
-        
         $(".navbar").fadeIn(); 
         $(".topbar").fadeIn();
         $(".footer").fadeIn(); 
+        $("main").fadeIn();
         $(".dashboard-b").fadeIn();
         fetchAgent('agent');
         fetchListing('listing');
@@ -18,14 +18,14 @@ function afterLogin(avatar) {
 }
 
 function aferLogout() {
-    $(".login-b").fadeIn("slow", function() {
-        $(".navbar").fadeOut(); 
-        $(".topbar").fadeOut();
-        $(".footer").fadeOut(); 
-        $(".dashboard-b").fadeOut();
-        $(".listing-b").fadeOut();
+    closeAll().then(function() {
+        $(".login-b").fadeIn("fast", function() {
+            $(".navbar").fadeOut(); 
+            $(".topbar").fadeOut();
+            $(".footer").fadeOut(); 
+            $("main").fadeOut();
+        });
     });
     
     $("#u-avatar").attr("src","./assets/images/user.png");
-    
 }

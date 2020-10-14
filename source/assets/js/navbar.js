@@ -76,6 +76,11 @@ $( document ).ready(function() {
         showListing();
     })
     
+    $("#back-list-view").click(function() {
+        fetchListing('listing');
+        showListing();
+    })
+    
     $("#back-agent").click(function() {
         fetchAgent('agent');
         showAgent();
