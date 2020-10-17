@@ -117,11 +117,10 @@ $( document ).ready(function() {
             confotur : propertyConfotur,
             nor : propertyNOR
         }).then(function() {
-            fetchListing('listing');
+            fetchAllData();
             showListing();
+            $(".content-loader").fadeOut("fast");
         });
-        
-        $(".content-loader").fadeOut("fast");
         
     });
     
@@ -141,11 +140,10 @@ $( document ).ready(function() {
             location : agentLocation,
             status : agentStatus
         }).then(function() {
-            fetchAgent('agent');
+            fetchAllData();
             showAgent();
+            $(".content-loader").fadeOut("fast");
         });
-        
-        $(".content-loader").fadeOut("fast");
         
     });
     

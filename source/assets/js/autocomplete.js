@@ -38,9 +38,9 @@ function autocomplete(inp, arr) {
         
                     fetchAllData();
                   
-                    $(inp).parent().parent().find(".f-s-main").append("<div class=\"f-s-card l-tab l-active\"><span>Filtered: " + this.getElementsByTagName("input")[0].value + "</span></div>");
+                    $(inp).parent().parent().find(".f-s-main").append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + this.getElementsByTagName("input")[0].value + "</span></div>");
                   
-                    $("#location-form-input").prop('disabled', false);
+                    $("#location-form-input").prop('disabled', true);
                 
                     $("#clear-button").show();
               

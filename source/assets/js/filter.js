@@ -16,7 +16,7 @@ $( document ).ready(function() {
         var val = $("#location-form-input").val();
         
         if(val !== '') {
-            $("#location-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filtered: " + val + "</span></div>")
+            $("#location-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["location", "==", val]);
@@ -33,7 +33,7 @@ $( document ).ready(function() {
         var val = $("#bedrooms-form-input").val();
         
         if(val !== '') {
-            $("#bedrooms-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
+            $("#bedrooms-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["bedrooms", "==", val]);
@@ -50,7 +50,7 @@ $( document ).ready(function() {
         var val = $("#bathrooms-form-input").val();
         
         if(val !== '') {
-            $("#bathrooms-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
+            $("#bathrooms-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["bathrooms", "==", val]);
@@ -67,7 +67,7 @@ $( document ).ready(function() {
         var val = $("#size-form-input").val();
         
         if(val !== '') {
-            $("#size-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
+            $("#size-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["size", "==", val]);
@@ -84,7 +84,7 @@ $( document ).ready(function() {
         var val = $("#price-form-input").val();
         
         if(val !== '') {
-            $("#price-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
+            $("#price-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["price", "==", val]);
@@ -101,7 +101,7 @@ $( document ).ready(function() {
         var val = $("#fee-form-input").val();
         
         if(val !== '') {
-            $("#fee-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
+            $("#fee-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["fee", "==", val]);

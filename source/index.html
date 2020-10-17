@@ -138,7 +138,7 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link info-button">
                         <i class="fas fa-info-circle r-icon"></i>
-                        <span class="link-text">About</span>
+                        <span class="link-text">Help</span>
                     </a>
                 </li>
 
@@ -174,14 +174,6 @@
             </ul>
         </div>
         
-        <div class="content-loader">
-            
-            <div class="loader-bg"></div>
-
-            <div class="center-element" id="spinner"></div>
-
-        </div>
-
         <main class="content">
             
             <div class="dashboard-b">
@@ -685,7 +677,7 @@
                             
                         <span id="title-bold-l">Type</span>
                                             
-                        <select required class="vl-select-css" id="nl-type-form-select">
+                        <select required class="vl-select-css" id="vl-type-form-select">
                             <option value="" hidden>Select an option</option>
                             <option>Condo</option>
                             <option>Condos</option>
@@ -703,7 +695,7 @@
                             
                         <span id="title-bold-l">Assistant In-Charge</span>
                                             
-                        <select required class="vl-select-css" id="nl-aic-form-select">
+                        <select required class="vl-select-css" id="vl-aic-form-select">
                             <option value="" hidden>Select an option</option>
                         </select>
                         
@@ -713,7 +705,7 @@
                             
                         <span id="title-bold-l">Status</span>
                                             
-                        <select required class="vl-select-css" id="nl-status-form-select">
+                        <select required class="vl-select-css" id="vl-status-form-select">
                             <option value="" hidden>Select an option</option>
                             <option>For Rent</option>
                             <option>For Sale</option>
@@ -726,7 +718,7 @@
                             
                         <span id="title-bold-l">Agent</span>
                                             
-                        <select required class="vl-select-css" id="nl-agent-form-select">
+                        <select required class="vl-select-css" id="vl-agent-form-select">
                             <option value="" hidden>Select an option</option>
                         </select>
                         
@@ -736,7 +728,7 @@
                             
                         <span id="title-bold-l">Confotur?</span>
                                             
-                        <select required class="vl-select-css" id="nl-confotur-form-select">
+                        <select required class="vl-select-css" id="vl-confotur-form-select">
                             <option value="" hidden>Select an option</option>
                             <option>Yes</option>
                             <option>No</option>
@@ -748,7 +740,7 @@
                             
                         <span id="title-bold-l">New Construction or Resale?</span>
                                             
-                        <select required class="vl-select-css" id="nl-nor-form-select">
+                        <select required class="vl-select-css" id="vl-nor-form-select">
                             <option value="" hidden>Select an option</option>
                             <option>Resale</option>
                             <option>Land</option>
@@ -1064,11 +1056,7 @@
                         
                         <div class="c-n-container">
                             
-                            <div id="c-note">✨ : Added ability to view property information</div>
-                            <div id="c-note">✨ : Added ability to edit property information</div>
-                            <div id="c-note">✨ : Added ability to delete property information</div>
-                            <div id="c-note">✨ : Authorization panel design changes</div>
-                            <div id="c-note">🐛 : Fixed error with authentication</div>
+                            <div id="c-note">✨ : Added loading animation on data fetch</div>
                         
                         </div>
                         
@@ -1103,5 +1091,13 @@
 
         </main>
 
+        <div class="content-loader">
+            
+            <div class="loader-bg"></div>
+
+            <div class="center-element" id="spinner"></div>
+
+        </div>
+        
     </body>
 </html>

@@ -32,26 +32,6 @@ function readDocuments(collection, options = {}) {
             .catch()
 }
 
-function getFormattedDate() {
-    var date = new Date();
-
-    var month = date.getMonth() + 1;
-    var day = date.getDate();
-    var hour = date.getHours();
-    var min = date.getMinutes();
-    var sec = date.getSeconds();
-
-    month = (month < 10 ? '0' : '') + month;
-    day = (day < 10 ? '0' : '') + day;
-    hour = (hour < 10 ? '0' : '') + hour;
-    min = (min < 10 ? '0' : '') + min;
-    sec = (sec < 10 ? '0' : '') + sec;
-
-    var str = day + '/' + month + '/' + date.getFullYear();
-
-    return str;
-}
-
 function getAgent(docID) {
     var agent = null;
     Object.keys(agentArray).forEach(function (key) {
@@ -96,9 +76,16 @@ function checkAgentExists(agent) {
     }
 }
 
+function returnDate(dt) {
+    if(dt != undefined) {
+        return dt.toDate().toDateString();
+    }
+    return '';
+}
+
 function renderList(doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + doc.id + '\')"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>')
+    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + doc.id + '\')"><td>' + returnDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>');
     
     if (!checkLocationExists(doc.data().location)) {
         locationArray.push(doc.data().location);
@@ -125,7 +112,6 @@ function fetchAllData() {
     agentDocuments.then(function(doc) {
         
         $(".agent .agent-table-data").empty(); // clear the table data
-        
         $('#filter-agent-form-select').empty(); // clear select form options
         $('#filter-aic-form-select').empty(); // clear select form options
         $('#nl-aic-form-select').empty(); // clear select form options
