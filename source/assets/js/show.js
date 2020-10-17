@@ -6,8 +6,6 @@ function afterLogin(avatar) {
         $(".footer").fadeIn(); 
         $("main").fadeIn();
         $(".dashboard-b").fadeIn();
-        fetchAgent('agent');
-        fetchListing('listing');
     });
     
     

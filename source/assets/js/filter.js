@@ -19,10 +19,6 @@ $( document ).ready(function() {
             $("#location-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
         }
         
-        if ($(this).find(".f-s-main").not(':empty')) {
-            $(this).parent().parent().find("#clear-button").show();
-        }
-        
         addValue(options, "where", ["location", "==", val]);
         
         fetchListing('listing');
@@ -36,10 +32,6 @@ $( document ).ready(function() {
         
         if(val !== '') {
             $("#bedrooms-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
-        }
-        
-        if ($(this).find(".f-s-main").not(':empty')) {
-            $(this).parent().parent().find("#clear-button").show();
         }
         
         addValue(options, "where", ["bedrooms", "==", val]);
@@ -57,10 +49,6 @@ $( document ).ready(function() {
             $("#bathrooms-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
         }
         
-        if ($(this).find(".f-s-main").not(':empty')) {
-            $(this).parent().parent().find("#clear-button").show();
-        }
-        
         addValue(options, "where", ["bathrooms", "==", val]);
         
         fetchListing('listing');
@@ -74,10 +62,6 @@ $( document ).ready(function() {
         
         if(val !== '') {
             $("#size-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
-        }
-        
-        if ($(this).find(".f-s-main").not(':empty')) {
-            $(this).parent().parent().find("#clear-button").show();
         }
         
         addValue(options, "where", ["size", "==", val]);
@@ -95,10 +79,6 @@ $( document ).ready(function() {
             $("#price-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
         }
         
-        if ($(this).find(".f-s-main").not(':empty')) {
-            $(this).parent().parent().find("#clear-button").show();
-        }
-        
         addValue(options, "where", ["price", "==", val]);
         
         fetchListing('listing');
@@ -112,10 +92,6 @@ $( document ).ready(function() {
         
         if(val !== '') {
             $("#fee-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
-        }
-        
-        if ($(this).find(".f-s-main").not(':empty')) {
-            $(this).parent().parent().find("#clear-button").show();
         }
         
         addValue(options, "where", ["fee", "==", val]);

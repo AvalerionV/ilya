@@ -36,12 +36,12 @@ function autocomplete(inp, arr) {
                     
                     addValue(options, "where", ["location", "==", this.getElementsByTagName("input")[0].value]);
         
-                    fetchListing('listing');
+                    fetchAllData();
                   
                     $(inp).parent().parent().find(".f-s-main").append("<div class=\"f-s-card l-tab l-active\"><span>" + this.getElementsByTagName("input")[0].value + "</span></div>")
                 
                     if ($(inp).parent().parent().find(".f-s-main").not(':empty')) {
-                        $(inp).parent().parent().parent().parent().find("#clear-button").show();
+                        // disable input
                     }
               
               /*close the list of autocompleted values,

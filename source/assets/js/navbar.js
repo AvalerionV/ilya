@@ -50,12 +50,12 @@ $( document ).ready(function() {
     });
     
     $(".list-button").click(function() {
-        fetchListing('listing');
+        fetchAllData();
         showListing();
     });
     
      $(".agent-button").click(function() {
-        fetchAgent('agent');
+        fetchAllData();
         showAgent();
     });
     
@@ -72,17 +72,17 @@ $( document ).ready(function() {
     })
     
     $("#back-list").click(function() {
-        fetchListing('listing');
+        fetchAllData();
         showListing();
     })
     
     $("#back-list-view").click(function() {
-        fetchListing('listing');
+        fetchAllData();
         showListing();
     })
     
     $("#back-agent").click(function() {
-        fetchAgent('agent');
+        fetchAllData();
         showAgent();
     })
     

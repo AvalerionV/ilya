@@ -88,6 +88,14 @@ function checkLocationExists(loc) {
     }
 }
 
+function checkAgentExists(agent) {
+    if(agentArray.indexOf(agent) !== -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function renderList(doc) {
     
     $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + doc.id + '\')"><td>' + getFormattedDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>')
@@ -102,35 +110,19 @@ function renderAgent(doc) {
     
     $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td>' + getAgentStatus(doc.data().status) + '</tr>')
     
-    agentArray.push({name:doc.data().name, id:doc.id});
+    if (!checkAgentExists(doc.data().name)) {
+        agentArray.push({name:doc.data().name, id:doc.id});
+    }
 }
 
-function fetchListing(collection) {
+function fetchAllData() {
     
-    let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
-    locationArray = []; // empty the LocationArray
+    $(".content-loader").show("fast");
     
-    documents.then(function(doc) {
-        
-        $(".listing .listing-table-data").empty(); // clear the table data
-
-        doc.docs.forEach(doc => {
-            renderList(doc);
-        })
-        
-    })
+    let agentDocuments = readDocuments("agent", options); // read collection from firestore using provided options argument
+    let listingDocuments = readDocuments("listing", options); // read collection from firestore using provided options argument
     
-    autocomplete(document.getElementById("location-form-input"), locationArray);
-    
-}
-
-function fetchAgent(collection) {
-    
-    let documents = readDocuments(collection, options); // read collection from firestore using provided options argument
-    
-    documents.then(function(doc) {
-    
-        agentArray = [];
+    agentDocuments.then(function(doc) {
         
         $(".agent .agent-table-data").empty(); // clear the table data
         
@@ -157,7 +149,23 @@ function fetchAgent(collection) {
         
         //$('#mySelect').append($("<option></option>").attr("value", key).text(value)); 
         
+    }).then(function() {
+        
+        listingDocuments.then(function(doc) {
+
+            $(".listing .listing-table-data").empty(); // clear the table data
+
+            doc.docs.forEach(doc => {
+                renderList(doc);
+            })
+            
+            $(".content-loader").hide("fast");
+
+        })
+
+        autocomplete(document.getElementById("location-form-input"), locationArray);
+        
     })
-    
+        
 }
 

@@ -92,7 +92,10 @@ $( document ).ready(function() {
     
     $("#save-listing").on("click", function() {
         
+        $(".content-loader").fadeIn("fast");
+        
         if(checkListInputs() == false) {
+            $(".content-loader").fadeOut("fast");
             return;
         }
         
@@ -116,13 +119,18 @@ $( document ).ready(function() {
         }).then(function() {
             fetchListing('listing');
             showListing();
-        })
+        });
+        
+        $(".content-loader").fadeOut("fast");
         
     });
     
     $("#save-agent").on("click", function() {
         
+        $(".content-loader").fadeIn("fast");
+        
         if(checkAgentInputs() == false) {
+            $(".content-loader").fadeOut("fast");
             return;
         }
         
@@ -135,7 +143,9 @@ $( document ).ready(function() {
         }).then(function() {
             fetchAgent('agent');
             showAgent();
-        })
+        });
+        
+        $(".content-loader").fadeOut("fast");
         
     });
     
