@@ -954,6 +954,7 @@ th,td {
 
 #clear-button {
     display: none;
+    margin-left: auto;
     font-size: 0.8rem;
     text-decoration: none;
     cursor: pointer;

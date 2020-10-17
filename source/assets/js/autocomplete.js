@@ -38,11 +38,11 @@ function autocomplete(inp, arr) {
         
                     fetchAllData();
                   
-                    $(inp).parent().parent().find(".f-s-main").append("<div class=\"f-s-card l-tab l-active\"><span>" + this.getElementsByTagName("input")[0].value + "</span></div>")
+                    $(inp).parent().parent().find(".f-s-main").append("<div class=\"f-s-card l-tab l-active\"><span>Filtered: " + this.getElementsByTagName("input")[0].value + "</span></div>");
+                  
+                    $("#location-form-input").prop('disabled', false);
                 
-                    if ($(inp).parent().parent().find(".f-s-main").not(':empty')) {
-                        // disable input
-                    }
+                    $("#clear-button").show();
               
               /*close the list of autocompleted values,
               (or any other open lists of autocompleted values:*/

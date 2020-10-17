@@ -16,14 +16,16 @@ $( document ).ready(function() {
         var val = $("#location-form-input").val();
         
         if(val !== '') {
-            $("#location-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>" + val + "</span></div>")
+            $("#location-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filtered: " + val + "</span></div>")
         }
         
         addValue(options, "where", ["location", "==", val]);
         
-        fetchListing('listing');
+        fetchAllData();
         
+        $("#location-form-input").prop('disabled', true);
         $("#location-form-input").val("");
+        $("#clear-button").show();
         
     })
     
@@ -36,9 +38,11 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["bedrooms", "==", val]);
         
-        fetchListing('listing');
+        fetchAllData();
         
+        $("#bedrooms-form-input").prop('disabled', true);
         $("#bedrooms-form-input").val("");
+        $("#clear-button").show();
         
     })
     
@@ -51,9 +55,11 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["bathrooms", "==", val]);
         
-        fetchListing('listing');
+        fetchAllData();
         
+        $("#bathrooms-form-input").prop('disabled', true);
         $("#bathrooms-form-input").val("");
+        $("#clear-button").show();
         
     })
     
@@ -66,9 +72,11 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["size", "==", val]);
         
-        fetchListing('listing');
+        fetchAllData();
         
+        $("#size-form-input").prop('disabled', true);
         $("#size-form-input").val("");
+        $("#clear-button").show();
         
     })
     
@@ -81,9 +89,11 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["price", "==", val]);
         
-        fetchListing('listing');
+        fetchAllData();
         
+        $("#price-form-input").prop('disabled', true);
         $("#price-form-input").val("");
+        $("#clear-button").show();
         
     })
     
@@ -96,15 +106,28 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["fee", "==", val]);
         
-        fetchListing('listing');
+        fetchAllData();
         
+        $("#fee-form-input").prop('disabled', true);
         $("#fee-form-input").val("");
+        $("#clear-button").show();
         
     })
     
 });
 
 function clearSelection(element) {
-    $(element).next().find(".f-s-main").empty();
+    $("#location-form-input").prop('disabled', false);
+    $("#bedrooms-form-input").prop('disabled', false);
+    $("#bathrooms-form-input").prop('disabled', false);
+    $("#size-form-input").prop('disabled', false);
+    $("#price-form-input").prop('disabled', false);
+    $("#fee-form-input").prop('disabled', false);
+    
+    $(".f-s-main").each(function(index) {
+        $(this).empty();
+    });
+    options = [];
+    fetchAllData();
     $(element).hide();
 }
