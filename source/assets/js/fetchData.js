@@ -104,6 +104,11 @@ function renderAgent(doc) {
 
 function fetchAllData() {
     
+    $('#agent-s-d').show();
+    $('#listing-s-d').show();
+    $('#agent-e-d').hide();
+    $('#listing-e-d').hide();
+    
     $(".content-loader").show("fast");
     
     let agentDocuments = readDocuments("agent", options); // read collection from firestore using provided options argument
@@ -111,33 +116,57 @@ function fetchAllData() {
     
     agentDocuments.then(function(doc) {
         
-        $(".agent .agent-table-data").empty(); // clear the table data
-        $('#filter-agent-form-select').empty(); // clear select form options
-        $('#filter-aic-form-select').empty(); // clear select form options
-        $('#nl-aic-form-select').empty(); // clear select form options
-        $('#nl-agent-form-select').empty(); // clear select form options
-        
-        $('#filter-agent-form-select').append("<option selected>All</option>");
-        $('#filter-aic-form-select').append("<option selected>All</option>");
-        $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
-        $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+        if(doc.empty) {
+            
+            $('.agent').hide();
+            $('.empty-a-data').show();
+            $('#agent-s-d').hide();
+            $('#agent-e-d').show();
+            
+        } else {
+            
+            $('.agent').show();
+            $('.empty-a-data').hide();
 
-        doc.docs.forEach(doc => {
-            renderAgent(doc);
-        })        
+            $(".agent .agent-table-data").empty(); // clear the table data
+            $('#filter-agent-form-select').empty(); // clear select form options
+            $('#filter-aic-form-select').empty(); // clear select form options
+            $('#nl-aic-form-select').empty(); // clear select form options
+            $('#nl-agent-form-select').empty(); // clear select form options
+
+            $('#filter-agent-form-select').append("<option selected>All</option>");
+            $('#filter-aic-form-select').append("<option selected>All</option>");
+            $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+            $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+
+            doc.docs.forEach(doc => {
+                renderAgent(doc);
+            })        
+
+            Object.keys(agentArray).forEach(function (key) {
+                $('#filter-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+                $('#filter-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+                $('#nl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+                $('#nl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            });
+            
+        }
         
-        Object.keys(agentArray).forEach(function (key) {
-            $('#filter-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            $('#filter-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            $('#nl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            $('#nl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-        });
+    });
+    
+    listingDocuments.then(function(doc) {
         
-        //$('#mySelect').append($("<option></option>").attr("value", key).text(value)); 
-        
-    }).then(function() {
-        
-        listingDocuments.then(function(doc) {
+        if(doc.empty) {
+            
+            $('.listing').hide();
+            $('.empty-l-data').show();
+            $('#listing-s-d').hide();
+            $('#listing-e-d').show();
+            
+        } else {
+            
+            $('.listing').show();
+            $('.empty-l-data').hide();
 
             $(".listing .listing-table-data").empty(); // clear the table data
 
@@ -145,13 +174,13 @@ function fetchAllData() {
                 renderList(doc);
             })
             
-            $(".content-loader").hide("fast");
-
-        })
-
-        autocomplete(document.getElementById("location-form-input"), locationArray);
+        }
         
-    })
+        $(".content-loader").hide("fast");
+
+    });
+
+    autocomplete(document.getElementById("location-form-input"), locationArray);
         
 }
 
