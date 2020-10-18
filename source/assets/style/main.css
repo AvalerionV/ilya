@@ -287,9 +287,9 @@ button {
 
 .top-link {
 	display:flex;
-	align-items:center;
+	align-items:baseline;
 	text-decoration: none;
-    color: var(--text-primary);
+    color: gray;
     height: 50px;
 }
 
@@ -689,12 +689,34 @@ main h1 {
     .time-card {
 		margin-top: 1rem;
 	}
+    .top-component-left-button {
+        padding: 0.6rem 1.1rem;
+    }
+    :root {
+        font-size: 0.9rem;
+        transition: var(--transition-speed);
+    }
 }
 
 @media only screen and (min-width: 884px) {
     .time-card {
 		margin-left: 1rem;
 	}
+    .top-component-left-button {
+        padding: 0.8rem 1.3rem;
+    }
+    :root {
+        font-size: 1rem;
+        transition: var(--transition-speed);
+    }
+}
+
+.top-title-text {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    padding-top: 1rem;
+    margin-right: auto;
 }
 
 .time-title {
@@ -732,13 +754,11 @@ main h1 {
 }
 
 .listing {
-    font-size: 1rem;
     border-collapse:separate; 
     border-spacing: 0 0;
 }
 
 .agent {
-    font-size: 1rem;
     border-collapse:separate; 
     border-spacing: 0 0;
 }
@@ -881,7 +901,6 @@ th,td {
 }
 
 .top-component-left-button {
-    padding: 0.8rem 1.3rem;
     border-radius: 5px;
     transition: var(--transition-speed);
     color: white;
@@ -912,14 +931,6 @@ th,td {
 
 .top-component-left-button:hover {
     cursor: pointer;
-}
-
-.top-title-text {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
-    margin-right: auto;
 }
 
 .vl-top-title-text {

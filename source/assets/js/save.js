@@ -99,24 +99,28 @@ $( document ).ready(function() {
             return;
         }
         
-        db.collection("listing")
-        .doc()
-        .set({ 
+        var rootRef = db.collection("listing").doc();
+        
+        rootRef.set({ 
             name: propertyName,
             location : propertyLocation,
             date: firebase.firestore.FieldValue.serverTimestamp(),
+            top : propertyTOP,
+            status : propertyStatus,
+            agent : propertyAgent,
+        });
+        
+        rootRef.collection("details").doc().set({
             bedrooms : propertyBedrooms,
             bathrooms : propertyBathrooms,
             size : propertySize,
             price : propertyPrice,
             fee : propertyFee,
-            top : propertyTOP,
             aic : propertyAIC,
-            status : propertyStatus,
-            agent : propertyAgent,
             confotur : propertyConfotur,
             nor : propertyNOR
         }).then(function() {
+            listingDocuments = readDocuments("listing", options);
             fetchAllData();
             showListing();
             $(".content-loader").fadeOut("fast");
@@ -140,6 +144,7 @@ $( document ).ready(function() {
             location : agentLocation,
             status : agentStatus
         }).then(function() {
+            agentDocuments = readDocuments("agent", options);
             fetchAllData();
             showAgent();
             $(".content-loader").fadeOut("fast");

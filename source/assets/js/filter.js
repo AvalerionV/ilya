@@ -21,6 +21,7 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["location", "==", val]);
         
+        listingDocuments = readDocuments("listing", options);
         fetchAllData();
         
         $("#location-form-input").prop('disabled', true);
@@ -38,6 +39,7 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["bedrooms", "==", val]);
         
+        listingDocuments = readDocuments("listing", options);
         fetchAllData();
         
         $("#bedrooms-form-input").prop('disabled', true);
@@ -55,6 +57,7 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["bathrooms", "==", val]);
         
+        listingDocuments = readDocuments("listing", options);
         fetchAllData();
         
         $("#bathrooms-form-input").prop('disabled', true);
@@ -72,6 +75,7 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["size", "==", val]);
         
+        listingDocuments = readDocuments("listing", options);
         fetchAllData();
         
         $("#size-form-input").prop('disabled', true);
@@ -89,6 +93,7 @@ $( document ).ready(function() {
         
         addValue(options, "where", ["price", "==", val]);
         
+        listingDocuments = readDocuments("listing", options);
         fetchAllData();
         
         $("#price-form-input").prop('disabled', true);
@@ -101,18 +106,33 @@ $( document ).ready(function() {
         var val = $("#fee-form-input").val();
         
         if(val !== '') {
-            $("#fee-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>")
+            $("#fee-form-input").parent().next().append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + val + "</span></div>");
+            
+            addValue(options, "where", ["fee", "==", val]);
+        
+            listingDocuments = readDocuments("listing", options);
+            fetchAllData();
+
+            $("#fee-form-input").prop('disabled', true);
+            $("#fee-form-input").val("");
+            $("#clear-button").show();
         }
         
-        addValue(options, "where", ["fee", "==", val]);
-        
-        fetchAllData();
-        
-        $("#fee-form-input").prop('disabled', true);
-        $("#fee-form-input").val("");
-        $("#clear-button").show();
-        
     })
+    
+    $('.listing-search-box').submit(function() {
+        var val = $(".listing-search-box input").val();
+        
+        if(val !== '') {
+            options = {where: [["name", "==", val]]};
+            listingDocuments = readDocuments("listing", options);
+            fetchAllData();
+        } else {
+            options = [];
+            listingDocuments = readDocuments("listing", options);
+            fetchAllData();
+        }
+    });
     
 });
 
@@ -123,11 +143,13 @@ function clearSelection(element) {
     $("#size-form-input").prop('disabled', false);
     $("#price-form-input").prop('disabled', false);
     $("#fee-form-input").prop('disabled', false);
+    $(".listing-search-box input").val("");
     
     $(".f-s-main").each(function(index) {
         $(this).empty();
     });
     options = [];
+    listingDocuments = readDocuments("listing", options);
     fetchAllData();
     $(element).hide();
 }

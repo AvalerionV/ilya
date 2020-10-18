@@ -1,6 +1,5 @@
 
-//let options = {where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]};
-let options = [];
+let options = []; //let options = {where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]};
 
 function readDocuments(collection, options = {}) {
     let {where, orderBy, limit} = options;
@@ -8,7 +7,6 @@ function readDocuments(collection, options = {}) {
 
     if (where) {
         if (where[0] instanceof Array) {
-            // It's an array of array
             for (let w of where) {
                 query = query.where(...w);
             }
@@ -83,24 +81,27 @@ function returnDate(dt) {
     return '';
 }
 
-function renderList(doc) {
+function renderList(id,doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + doc.id + '\')"><td>' + returnDate(doc.data().date) + '</td><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td><td>'+ doc.data().top +'</td><td>' + getAgent(doc.data().agent) + '</td>' + getListingStatus(doc.data().status) + '</tr>');
+    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td>' + returnDate(doc.date) + '</td><td>' + doc.name + '</td><td>' + doc.location + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '</td>' + getListingStatus(doc.status) + '</tr>');
     
-    if (!checkLocationExists(doc.data().location)) {
-        locationArray.push(doc.data().location);
+    if (!checkLocationExists(doc.location)) {
+        locationArray.push(doc.location);
     }
     
 }
 
-function renderAgent(doc) {
+function renderAgent(id,doc) {
     
-    $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.data().name + '</td><td>' + doc.data().location + '</td>' + getAgentStatus(doc.data().status) + '</tr>')
+    $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.name + '</td><td>' + doc.location + '</td>' + getAgentStatus(doc.status) + '</tr>')
     
-    if (!checkAgentExists(doc.data().name)) {
-        agentArray.push({name:doc.data().name, id:doc.id});
+    if (!checkAgentExists(doc.name)) {
+        agentArray.push({name:doc.name, id:id});
     }
 }
+
+let agentDocuments = readDocuments("agent", options); // read collection from firestore using provided options argument
+let listingDocuments = readDocuments("listing", options); // read collection from firestore using provided options argument
 
 function fetchAllData() {
     
@@ -111,12 +112,9 @@ function fetchAllData() {
     
     $(".content-loader").show("fast");
     
-    let agentDocuments = readDocuments("agent", options); // read collection from firestore using provided options argument
-    let listingDocuments = readDocuments("listing", options); // read collection from firestore using provided options argument
-    
-    agentDocuments.then(function(doc) {
+    agentDocuments.then(querySnapshot => {
         
-        if(doc.empty) {
+        if(querySnapshot.empty) {
             
             $('.agent').hide();
             $('.empty-a-data').show();
@@ -139,8 +137,8 @@ function fetchAllData() {
             $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
             $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
 
-            doc.docs.forEach(doc => {
-                renderAgent(doc);
+            querySnapshot.forEach((doc) => {
+                renderAgent(doc.id,doc.data());
             })        
 
             Object.keys(agentArray).forEach(function (key) {
@@ -154,9 +152,9 @@ function fetchAllData() {
         
     });
     
-    listingDocuments.then(function(doc) {
+    listingDocuments.then((querySnapshot) => {
         
-        if(doc.empty) {
+        if(querySnapshot.empty) {
             
             $('.listing').hide();
             $('.empty-l-data').show();
@@ -170,8 +168,8 @@ function fetchAllData() {
 
             $(".listing .listing-table-data").empty(); // clear the table data
 
-            doc.docs.forEach(doc => {
-                renderList(doc);
+            querySnapshot.forEach((doc) => {
+                renderList(doc.id, doc.data());
             })
             
         }
