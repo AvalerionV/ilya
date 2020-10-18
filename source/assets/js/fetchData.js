@@ -110,8 +110,6 @@ function fetchAllData() {
     $('#agent-e-d').hide();
     $('#listing-e-d').hide();
     
-    $(".content-loader").show("fast");
-    
     agentDocuments.then(querySnapshot => {
         
         if(querySnapshot.empty) {
@@ -173,8 +171,6 @@ function fetchAllData() {
             })
             
         }
-        
-        $(".content-loader").hide("fast");
 
     });
 
