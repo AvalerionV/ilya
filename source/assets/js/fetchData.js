@@ -1,10 +1,12 @@
 
-let options = []; //let options = {where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]};
+let listingOptions = []; //{where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]}
+let agentOptions = []; //{where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]}
 
 function readDocuments(collection, options = {}) {
     let {where, orderBy, limit} = options;
-    let query = firebase.firestore().collection(collection);
-
+    
+    let query = firebase.firestore().collectionGroup(collection);
+    
     if (where) {
         if (where[0] instanceof Array) {
             for (let w of where) {
@@ -83,7 +85,7 @@ function returnDate(dt) {
 
 function renderList(id,doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td>' + returnDate(doc.date) + '</td><td>' + doc.name + '</td><td>' + doc.location + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '</td>' + getListingStatus(doc.status) + '</tr>');
+    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\''+doc.name+'\',\''+doc.location+'\',\'' + id + '\')"><td>' + returnDate(doc.date) + '</td><td>' + doc.name + '</td><td>' + doc.location + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '</td>' + getListingStatus(doc.status) + '</tr>');
     
     if (!checkLocationExists(doc.location)) {
         locationArray.push(doc.location);
@@ -100,11 +102,15 @@ function renderAgent(id,doc) {
     }
 }
 
-let agentDocuments = readDocuments("agent", options); // read collection from firestore using provided options argument
-let listingDocuments = readDocuments("listing", options); // read collection from firestore using provided options argument
+let agentDocuments = readDocuments("agent", listingOptions); // read collection from firestore using provided options argument
+let listingDocuments = readDocuments("listing", agentOptions); // read collection from firestore using provided options argument
 
 function fetchAllData() {
     
+    $('.listing').hide();
+    $('.agent').hide();
+    $('.empty-l-data').show();
+    $('.empty-a-data').show();
     $('#agent-s-d').show();
     $('#listing-s-d').show();
     $('#agent-e-d').hide();
@@ -167,7 +173,9 @@ function fetchAllData() {
             $(".listing .listing-table-data").empty(); // clear the table data
 
             querySnapshot.forEach((doc) => {
+                
                 renderList(doc.id, doc.data());
+                
             })
             
         }

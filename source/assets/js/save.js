@@ -120,7 +120,7 @@ $( document ).ready(function() {
             confotur : propertyConfotur,
             nor : propertyNOR
         }).then(function() {
-            listingDocuments = readDocuments("listing", options);
+            listingDocuments = readDocuments("listing", listingOptions);
             fetchAllData();
             showListing();
             $(".content-loader").fadeOut("fast");

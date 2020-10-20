@@ -1,5 +1,5 @@
-function getDocument(docID) {
-    let query = firebase.firestore().collection("listing").doc(docID);
+function getSubDocument(docID) {
+    let query = firebase.firestore().collection("listing").doc(docID).collection("details");
 
     return query
             .get()
@@ -7,7 +7,9 @@ function getDocument(docID) {
             .catch()
 }
 
-function openDocument(docID) {
+function openDocument(name,location,docID) {
+    $(".content-loader").fadeIn("fast");
+    
     closeAll().then(function() {
         $(".view-listing-b").fadeIn();
         $("#vl-name-form-input").val("");
@@ -19,18 +21,25 @@ function openDocument(docID) {
         $("#vl-fee-form-input").val("");
     });
     
-    let docData = getDocument(docID);
-    
-    docData.then(function(doc) {
+    let subData = getSubDocument(docID);
         
-        $("#vl-name-form-input").val(doc.data().name);
-        $("#vl-location-form-input").val(doc.data().location);
-        $("#vl-bedrooms-form-input").val(doc.data().bedrooms);
-        $("#vl-bathrooms-form-input").val(doc.data().bathrooms);
-        $("#vl-size-form-input").val(doc.data().size);
-        $("#vl-price-form-input").val(doc.data().price);
-        $("#vl-fee-form-input").val(doc.data().fee);
+    subData.then(function(subDoc) {
         
-    })
+        $("#vl-name-form-input").val(name);
+        $("#vl-location-form-input").val(location);
+
+        subDoc.forEach((doc) => {
+
+            $("#vl-bedrooms-form-input").val(doc.data().bedrooms);
+            $("#vl-bathrooms-form-input").val(doc.data().bathrooms);
+            $("#vl-size-form-input").val(doc.data().size);
+            $("#vl-price-form-input").val(doc.data().price);
+            $("#vl-fee-form-input").val(doc.data().fee);
+            
+            $(".content-loader").fadeOut("fast");
+
+        });
+        
+    });
 
 }

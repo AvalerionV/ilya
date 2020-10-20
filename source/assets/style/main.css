@@ -265,7 +265,6 @@ button {
 	padding: 0.7rem 1rem;
 	background: var(--bg-white);
     border-top: 1px solid var(--bg-secondary);
-    height: 55px;
 }
 
 .top-nav {
@@ -290,7 +289,6 @@ button {
 	align-items:baseline;
 	text-decoration: none;
     color: gray;
-    height: 50px;
 }
 
 .filter-nav {
@@ -442,7 +440,6 @@ main h1 {
 	align-items: center;
 	height: 4.8rem;
 	text-decoration: none;
-	transition: var(--transition-speed);
 	color: var(--text-secondary);
 }
 
@@ -493,7 +490,7 @@ main h1 {
 }
 
 .drop-icon {
-    color: var(--text-primary);
+    color: dimgray;
     transition: var(--transition-speed);
 }
 
@@ -692,6 +689,13 @@ main h1 {
     .top-component-left-button {
         padding: 0.6rem 1.1rem;
     }
+    .top-link {
+        height: 40px;
+        transition: var(--transition-speed);
+    }
+    .topbar {
+        height: 45px;
+    }
     :root {
         font-size: 0.9rem;
         transition: var(--transition-speed);
@@ -704,6 +708,13 @@ main h1 {
 	}
     .top-component-left-button {
         padding: 0.8rem 1.3rem;
+    }
+    .top-link {
+        height: 50px;
+        transition: var(--transition-speed);
+    }
+    .topbar {
+        height: 55px;
     }
     :root {
         font-size: 1rem;
@@ -902,7 +913,6 @@ th,td {
 
 .top-component-left-button {
     border-radius: 5px;
-    transition: var(--transition-speed);
     color: white;
 }
 

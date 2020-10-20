@@ -34,9 +34,9 @@ function autocomplete(inp, arr) {
               /*insert the value for the autocomplete text field:*/
               inp.value = "";
                     
-                    addValue(options, "where", ["location", "==", this.getElementsByTagName("input")[0].value]);
+                    addValue(listingOptions, "where", ["location", "==", this.getElementsByTagName("input")[0].value]);
                     
-                    listingDocuments = readDocuments("listing", options);
+                    listingDocuments = readDocuments("listing", listingOptions);
                     fetchAllData();
                   
                     $(inp).parent().parent().find(".f-s-main").append("<div class=\"f-s-card l-tab l-active\"><span>Filter on: " + this.getElementsByTagName("input")[0].value + "</span></div>");
