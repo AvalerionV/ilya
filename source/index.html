@@ -223,6 +223,12 @@
                     </div>
                 
                 </div>
+                    
+                <div class="clear-selection-box">
+
+                    <span class="clear-button" id="listing-clear" onclick="clearListingSelection(this);">Clear All Filters</span>
+
+                </div>
                 
                 <div class="container-box">
                     
@@ -240,7 +246,7 @@
                                 Range
                             </a>
                         </li>
-
+                        
                         <li class="filter-item">
                             <div class="search-link">
                                 
@@ -253,13 +259,12 @@
                             
                             </div>
                         </li>
+                        
                     </ul>
                     
                     <div class="filters-container">
                         
                         <div class="c-main">
-                            
-                           <span id="clear-button" onclick="clearSelection(this);">Clear All Filters</span>
                                 
                             <div class="f-card filter-tab-options">
                                 
@@ -295,7 +300,7 @@
                                             
                                             <div class="autocomplete">
                                                 
-                                                <input type="text" placeholder="Number of Bedrooms" id="bedrooms-form-input" autocomplete="off">
+                                                <input type="number" placeholder="Number of Bedrooms" id="bedrooms-form-input" autocomplete="off">
 
                                             </div>    
                                                
@@ -317,7 +322,7 @@
                                             
                                             <div class="autocomplete">
                                                 
-                                                <input type="text" placeholder="Number of Bathrooms" id="bathrooms-form-input" autocomplete="off">
+                                                <input type="number" placeholder="Number of Bathrooms" id="bathrooms-form-input" autocomplete="off">
                                             
                                             </div>    
                                                
@@ -331,7 +336,7 @@
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">Size</span>
+                                    <span id="title-bold">Size</span> (sqft)
                                     
                                     <div class="filter-tab-option">
                                     
@@ -339,7 +344,7 @@
                                             
                                             <div class="autocomplete">
                                                 
-                                                <input type="text" placeholder="Enter Size" id="size-form-input" autocomplete="off">
+                                                <input type="number" placeholder="Enter Size" id="size-form-input" autocomplete="off">
                                                 
                                             </div>
                                             
@@ -353,7 +358,7 @@
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">Price (USD)</span>
+                                    <span id="title-bold">Price</span> (USD)
                                     
                                     <div class="filter-tab-option">
                                     
@@ -361,7 +366,7 @@
                                             
                                             <div class="autocomplete">
                                                 
-                                                <input type="text" placeholder="Enter Price" id="price-form-input" autocomplete="off">
+                                                <input type="number" placeholder="Enter Price" id="price-form-input" autocomplete="off">
                                                 
                                             </div>
 
@@ -375,7 +380,7 @@
                                 
                                 <div class="filter-tab-options-container">
                                 
-                                    <span id="title-bold">Fee (USD)</span>
+                                    <span id="title-bold">Fee</span> (USD)
                                     
                                     <div class="filter-tab-option">
                                     
@@ -383,7 +388,7 @@
                                             
                                             <div class="autocomplete">
                                                 
-                                                <input type="text" placeholder="Enter Fee" id="fee-form-input" autocomplete="off">
+                                                <input type="number" placeholder="Enter Fee" id="fee-form-input" autocomplete="off">
                                                 
                                             </div>
 
@@ -406,18 +411,20 @@
                                             <div class="autocomplete">
                                                 
                                                 <select class="select-css" id="top-form-select">
-                                                    <option selected>All</option>
-                                                    <option>Condo</option>
-                                                    <option>Condos</option>
-                                                    <option>House</option>
-                                                    <option>Land</option>
-                                                    <option>Villa</option>
-                                                    <option>Villas</option>
-                                                    <option>Penthouse</option>
-                                                    <option>VIP Condo</option>
+                                                    <option value="null" selected>All</option>
+                                                    <option value="Condo">Condo</option>
+                                                    <option value="Condos">Condos</option>
+                                                    <option value="House">House</option>
+                                                    <option value="Land">Land</option>
+                                                    <option value="Villa">Villa</option>
+                                                    <option value="Villas">Villas</option>
+                                                    <option value="Penthouse">Penthouse</option>
+                                                    <option value="VIP Condo">VIP Condo</option>
                                                 </select>
                                         
                                             </div>
+                                            
+                                            <div class="f-s-main"></div>
                                             
                                         </form>
                                         
@@ -436,10 +443,12 @@
                                             <div class="autocomplete">
                                             
                                                 <select class="select-css" id="filter-agent-form-select">
-                                                    <option selected>All</option>
+                                                    <option value="null" selected>All</option>
                                                 </select>
 
                                             </div>
+                                            
+                                            <div class="f-s-main"></div>
                                             
                                         </form>
                                         
@@ -458,13 +467,15 @@
                                             <div class="autocomplete">
                                             
                                                 <select class="select-css" id="status-form-select">
-                                                    <option selected>All</option>
-                                                    <option>For Rent</option>
-                                                    <option>For Sale</option>
-                                                    <option>Sold</option>
+                                                    <option value="null" selected>All</option>
+                                                    <option value="For Rent">For Rent</option>
+                                                    <option value="For Sale">For Sale</option>
+                                                    <option value="Sold">Sold</option>
                                                 </select>
                                             
                                             </div>
+                                            
+                                            <div class="f-s-main"></div>
                                             
                                         </form>
                                     
@@ -483,12 +494,14 @@
                                             <div class="autocomplete">
                                                 
                                                 <select class="select-css" id="confotur-form-select">
-                                                    <option selected>All</option>
-                                                    <option>Yes</option>
-                                                    <option>No</option>
+                                                    <option value="null" selected>All</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
                                                 </select>        
                                                 
                                             </div>
+                                            
+                                            <div class="f-s-main"></div>
                                             
                                         </form>
                                         
@@ -507,16 +520,18 @@
                                             <div class="autocomplete">
                                             
                                                 <select class="select-css" id="nor-form-select">
-                                                    <option selected>All</option>
-                                                    <option>Resale</option>
-                                                    <option>Land</option>
-                                                    <option>New Construction</option>
-                                                    <option>New Construction - Resale</option>
-                                                    <option>For Rent - Long Term</option>
-                                                    <option>For Rent - Short Term</option>
+                                                    <option value="null" selected>All</option>
+                                                    <option value="Resale">Resale</option>
+                                                    <option value="Land">Land</option>
+                                                    <option value="New Construction">New Construction</option>
+                                                    <option value="New Construction - Resale">New Construction - Resale</option>
+                                                    <option value="For Rent - Long Term">For Rent - Long Term</option>
+                                                    <option value="For Rent - Short Term">For Rent - Short Term</option>
                                                 </select>
 
-                                            </div>    
+                                            </div>
+                                            
+                                            <div class="f-s-main"></div>
                                             
                                         </form>
                                         
@@ -535,10 +550,12 @@
                                             <div class="autocomplete">
                                                 
                                                 <select class="select-css" id="filter-aic-form-select">
-                                                    <option selected>All</option>
+                                                    <option value="null" selected>All</option>
                                                 </select>
 
                                             </div>
+                                            
+                                            <div class="f-s-main"></div>
                                             
                                         </form>
                                         
@@ -555,6 +572,16 @@
                 </div>
                 
                 <div class="container-box">
+                    
+                    <div class="stats" id="listing-stats">
+                    
+                        <div class="left">
+                        
+                            About <span id="l-records">0</span> results (<span id="l-execTime"></span> seconds)
+                            
+                        </div>
+                    
+                    </div>
                     
                     <table style="width:100%" class="listing">
                         <tr>
@@ -625,7 +652,7 @@
 
                         </div>
                         
-                        <div class="top-component-left-button" id="print-listing">
+                        <div class="top-component-left-button" id="print-listing" onclick="window.print();">
                     
                             <i class="fas fa-print m-s-r"></i> <span>Print</span>
 
@@ -657,7 +684,7 @@
                             
                         <span id="title-bold-l">Bedrooms</span>
                                             
-                        <input type="text" placeholder="Enter Number of Bedrooms" id="vl-bedrooms-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Number of Bedrooms" id="vl-bedrooms-form-input" autocomplete="off">
                         
                     </div>
                     
@@ -665,31 +692,31 @@
                             
                         <span id="title-bold-l">Bathrooms</span>
                                             
-                        <input type="text" placeholder="Enter Number of Bathrooms" id="vl-bathrooms-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Number of Bathrooms" id="vl-bathrooms-form-input" autocomplete="off">
                         
                     </div>
                     
                     <div class="view-list-form">
                             
-                        <span id="title-bold-l">Size</span>
+                        <span id="title-bold-l">Size</span> (sqft)
                                             
-                        <input type="text" placeholder="Enter Size of Property" id="vl-size-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Size of Property" id="vl-size-form-input" autocomplete="off">
                         
                     </div>
                     
                     <div class="view-list-form">
                             
-                        <span id="title-bold-l">Price</span>
+                        <span id="title-bold-l">Price</span> (USD)
                                             
-                        <input type="text" placeholder="Enter Price of Property" id="vl-price-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Price of Property" id="vl-price-form-input" autocomplete="off">
                         
                     </div>
                     
                     <div class="view-list-form">
                             
-                        <span id="title-bold-l">Fee</span>
+                        <span id="title-bold-l">Fee</span> (USD)
                                             
-                        <input type="text" placeholder="Enter Fee of Property" id="vl-fee-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Fee of Property" id="vl-fee-form-input" autocomplete="off">
                         
                     </div>
                     
@@ -698,15 +725,15 @@
                         <span id="title-bold-l">Type</span>
                                             
                         <select required class="vl-select-css" id="vl-type-form-select">
-                            <option value="" hidden>Select an option</option>
-                            <option>Condo</option>
-                            <option>Condos</option>
-                            <option>House</option>
-                            <option>Land</option>
-                            <option>Villa</option>
-                            <option>Villas</option>
-                            <option>Penthouse</option>
-                            <option>VIP Condo</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="Condo">Condo</option>
+                            <option value="Condos">Condos</option>
+                            <option value="House">House</option>
+                            <option value="Land">Land</option>
+                            <option value="Villa">Villa</option>
+                            <option value="Villas">Villas</option>
+                            <option value="Penthouse">Penthouse</option>
+                            <option value="VIP Condo">VIP Condo</option>
                         </select>
                         
                     </div>
@@ -716,7 +743,7 @@
                         <span id="title-bold-l">Assistant In-Charge</span>
                                             
                         <select required class="vl-select-css" id="vl-aic-form-select">
-                            <option value="" hidden>Select an option</option>
+                            <option value="null" selected hidden>Select an option</option>
                         </select>
                         
                     </div>
@@ -726,10 +753,10 @@
                         <span id="title-bold-l">Status</span>
                                             
                         <select required class="vl-select-css" id="vl-status-form-select">
-                            <option value="" hidden>Select an option</option>
-                            <option>For Rent</option>
-                            <option>For Sale</option>
-                            <option>Sold</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="For Rent">For Rent</option>
+                            <option value="For Sale">For Sale</option>
+                            <option value="Sold">Sold</option>
                         </select>
                         
                     </div>
@@ -739,7 +766,7 @@
                         <span id="title-bold-l">Agent</span>
                                             
                         <select required class="vl-select-css" id="vl-agent-form-select">
-                            <option value="" hidden>Select an option</option>
+                            <option value="null" selected hidden>Select an option</option>
                         </select>
                         
                     </div>
@@ -749,9 +776,9 @@
                         <span id="title-bold-l">Confotur?</span>
                                             
                         <select required class="vl-select-css" id="vl-confotur-form-select">
-                            <option value="" hidden>Select an option</option>
-                            <option>Yes</option>
-                            <option>No</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select>
                         
                     </div>
@@ -761,13 +788,13 @@
                         <span id="title-bold-l">New Construction or Resale?</span>
                                             
                         <select required class="vl-select-css" id="vl-nor-form-select">
-                            <option value="" hidden>Select an option</option>
-                            <option>Resale</option>
-                            <option>Land</option>
-                            <option>New Construction</option>
-                            <option>New Construction - Resale</option>
-                            <option>For Rent - Long Term</option>
-                            <option>For Rent - Short Term</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="Resale">Resale</option>
+                            <option value="Land">Land</option>
+                            <option value="New Construction">New Construction</option>
+                            <option value="New Construction - Resale">New Construction - Resale</option>
+                            <option value="For Rent - Long Term">For Rent - Long Term</option>
+                            <option value="For Rent - Short Term">For Rent - Short Term</option>
                         </select>
                         
                     </div>
@@ -828,7 +855,7 @@
                             
                         <span id="title-bold-l">Bedrooms</span><span class="red-text">(Required)</span>
                                             
-                        <input type="text" placeholder="Enter Number of Bedrooms" id="nl-bedrooms-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Number of Bedrooms" id="nl-bedrooms-form-input" autocomplete="off">
                         
                     </div>
                     
@@ -836,31 +863,31 @@
                             
                         <span id="title-bold-l">Bathrooms</span><span class="red-text">(Required)</span>
                                             
-                        <input type="text" placeholder="Enter Number of Bathrooms" id="nl-bathrooms-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Number of Bathrooms" id="nl-bathrooms-form-input" autocomplete="off">
                         
                     </div>
                     
                     <div class="new-list-form">
                             
-                        <span id="title-bold-l">Size</span><span class="red-text">(Required)</span>
+                        <span id="title-bold-l">Size</span> (sqft)<span class="red-text">(Required)</span>
                                             
-                        <input type="text" placeholder="Enter Size of Property" id="nl-size-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Size of Property" id="nl-size-form-input" autocomplete="off">
                         
                     </div>
                     
                     <div class="new-list-form">
                             
-                        <span id="title-bold-l">Price</span><span class="red-text">(Required)</span>
+                        <span id="title-bold-l">Price</span> (USD)<span class="red-text">(Required)</span>
                                             
-                        <input type="text" placeholder="Enter Price of Property" id="nl-price-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Price of Property" id="nl-price-form-input" autocomplete="off">
                         
                     </div>
                     
                     <div class="new-list-form">
                             
-                        <span id="title-bold-l">Fee</span>
+                        <span id="title-bold-l">Fee</span> (USD)
                                             
-                        <input type="text" placeholder="Enter Fee of Property" id="nl-fee-form-input" autocomplete="off">
+                        <input type="number" placeholder="Enter Fee of Property" id="nl-fee-form-input" autocomplete="off">
                         
                     </div>
                     
@@ -869,15 +896,15 @@
                         <span id="title-bold-l">Type</span><span class="red-text">(Required)</span>
                                             
                         <select required class="nl-select-css" id="nl-type-form-select">
-                            <option value="" selected hidden>Select an option</option>
-                            <option>Condo</option>
-                            <option>Condos</option>
-                            <option>House</option>
-                            <option>Land</option>
-                            <option>Villa</option>
-                            <option>Villas</option>
-                            <option>Penthouse</option>
-                            <option>VIP Condo</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="Condo">Condo</option>
+                            <option value="Condos">Condos</option>
+                            <option value="House">House</option>
+                            <option value="Land">Land</option>
+                            <option value="Villa">Villa</option>
+                            <option value="Villas">Villas</option>
+                            <option value="Penthouse">Penthouse</option>
+                            <option value="VIP Condo">VIP Condo</option>
                         </select>
                         
                     </div>
@@ -887,7 +914,7 @@
                         <span id="title-bold-l">Assistant In-Charge</span>
                                             
                         <select required class="nl-select-css" id="nl-aic-form-select">
-                            <option value="" selected hidden>Select an option</option>
+                            <option value="null" selected hidden>Select an option</option>
                         </select>
                         
                     </div>
@@ -897,10 +924,10 @@
                         <span id="title-bold-l">Status</span><span class="red-text">(Required)</span>
                                             
                         <select required class="nl-select-css" id="nl-status-form-select">
-                            <option value="" selected hidden>Select an option</option>
-                            <option>For Rent</option>
-                            <option>For Sale</option>
-                            <option>Sold</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="For Rent">For Rent</option>
+                            <option value="For Sale">For Sale</option>
+                            <option value="Sold">Sold</option>
                         </select>
                         
                     </div>
@@ -910,7 +937,7 @@
                         <span id="title-bold-l">Agent</span><span class="red-text">(Required)</span>
                                             
                         <select required class="nl-select-css" id="nl-agent-form-select">
-                            <option value="" selected hidden>Select an option</option>
+                            <option value="null" selected hidden>Select an option</option>
                         </select>
                         
                     </div>
@@ -921,8 +948,8 @@
                                             
                         <select required class="nl-select-css" id="nl-confotur-form-select">
                             <option value="" selected hidden>Select an option</option>
-                            <option>Yes</option>
-                            <option>No</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
                         </select>
                         
                     </div>
@@ -932,13 +959,13 @@
                         <span id="title-bold-l">New Construction or Resale?</span><span class="red-text">(Required)</span>
                                             
                         <select required class="nl-select-css" id="nl-nor-form-select">
-                            <option value="" selected hidden>Select an option</option>
-                            <option>Resale</option>
-                            <option>Land</option>
-                            <option>New Construction</option>
-                            <option>New Construction - Resale</option>
-                            <option>For Rent - Long Term</option>
-                            <option>For Rent - Short Term</option>
+                            <option value="null" selected hidden>Select an option</option>
+                            <option value="Resale">Resale</option>
+                            <option value="Land">Land</option>
+                            <option value="New Construction">New Construction</option>
+                            <option value="New Construction - Resale">New Construction - Resale</option>
+                            <option value="For Rent - Long Term">For Rent - Long Term</option>
+                            <option value="For Rent - Short Term">For Rent - Short Term</option>
                         </select>
                         
                     </div>
@@ -965,6 +992,12 @@
                 
                 </div>
                 
+                <div class="clear-selection-box">
+
+                    <span class="clear-button" id="agent-clear" onclick="clearAgentSelection(this);">Clear All Filters</span>
+
+                </div>
+                
                 <div class="container-box">
                     
                     <ul class="filter-nav">
@@ -972,7 +1005,7 @@
                             <div class="search-link">
                                 
                                 <i class="fas fa-search search-icon"></i>
-                                <form onsubmit="return false" class="listing-search-box">
+                                <form onsubmit="return false" class="agent-search-box">
                             
                                     <input type="text" placeholder="Search Agent" class="search-box">
                                 
@@ -985,6 +1018,16 @@
                 </div>
                 
                 <div class="container-box">
+                    
+                    <div class="stats" id="agent-stats">
+                    
+                        <div class="left">
+                        
+                            About <span id="a-records">0</span> results (<span id="a-execTime"></span> seconds)
+                            
+                        </div>
+                    
+                    </div>
                     
                     <table style="width:100%" class="agent">
                         <tr>
@@ -1097,6 +1140,7 @@
                         <div class="c-n-container">
                             
                             <div id="c-note">✨ : Added loading animation on data fetch</div>
+                            <div id="c-note">✨ : Added time and total records statistics for fetching records</div>
                             <div id="c-note">🐛 : Fixed bug with fetching listings and agents data</div>
                         
                         </div>

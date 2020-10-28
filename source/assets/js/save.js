@@ -1,6 +1,6 @@
-var propertyName; var propertyLocation; var propertyBedrooms; var propertyBathrooms; var propertySize; var propertyPrice; var propertyFee; var propertyTOP; var propertyAIC; var propertyStatus; var propertyAgent; var propertyConfotur; var propertyNOR;
+let propertyName; let propertyLocation; let propertyBedrooms; let propertyBathrooms; let propertySize; let propertyPrice; let propertyFee; let propertyTOP; let propertyAIC; let propertyStatus; let propertyAgent; let propertyConfotur; let propertyNOR;
 
-var agentName; var agentLocation; var agentStatus;
+let agentName; let agentLocation; let agentStatus;
 
 function checkListInputs() {
     propertyName = $("#nl-name-form-input").val();
@@ -41,23 +41,23 @@ function checkListInputs() {
         $("#nl-price-form-input").effect("shake");
         $("#nl-price-form-input").focus();
         return false;
-    } else if(propertyTOP == "") {
+    } else if(propertyTOP == "null") {
         $("#nl-type-form-select").effect("shake");
         $("#nl-type-form-select").focus();
         return false;
-    } else if(propertyStatus == "") {
+    } else if(propertyStatus == "null") {
         $("#nl-status-form-select").effect("shake");
         $("#nl-status-form-select").focus();
         return false;
-    } else if(propertyAgent == "") {
+    } else if(propertyAgent == "null") {
         $("#nl-agent-form-select").effect("shake");
         $("#nl-agent-form-select").focus();
         return false;
-    } else if(propertyConfotur == "") {
+    } else if(propertyConfotur == "null") {
         $("#nl-confotur-form-select").effect("shake");
         $("#nl-confotur-form-select").focus();
         return false;
-    } else if(propertyNOR == "") {
+    } else if(propertyNOR == "null") {
         $("#nl-nor-form-select").effect("shake");
         $("#nl-nor-form-select").focus();
         return false;
@@ -79,7 +79,7 @@ function checkAgentInputs() {
         $("#na-location-form-input").effect("shake");
         $("#na-location-form-input").focus();
         return false;
-    } else if(agentStatus == "") {
+    } else if(agentStatus == "null") {
         $("#na-status-form-select").effect("shake");
         $("#na-status-form-select").focus();
         return false;
@@ -99,23 +99,18 @@ $( document ).ready(function() {
             return;
         }
         
-        var rootRef = db.collection("listing").doc();
-        
-        rootRef.set({ 
+        db.collection("listing").doc().set({ 
             name: propertyName,
             location : propertyLocation,
             date: firebase.firestore.FieldValue.serverTimestamp(),
             top : propertyTOP,
             status : propertyStatus,
             agent : propertyAgent,
-        });
-        
-        rootRef.collection("details").doc().set({
-            bedrooms : propertyBedrooms,
-            bathrooms : propertyBathrooms,
-            size : propertySize,
-            price : propertyPrice,
-            fee : propertyFee,
+            bedrooms : Number(propertyBedrooms),
+            bathrooms : Number(propertyBathrooms),
+            size : Number(propertySize),
+            price : Number(propertyPrice),
+            fee : Number(propertyFee),
             aic : propertyAIC,
             confotur : propertyConfotur,
             nor : propertyNOR
@@ -126,6 +121,14 @@ $( document ).ready(function() {
             $(".content-loader").fadeOut("fast");
         });
         
+        
+        $("#nl-name-form-input").val("");
+        $("#nl-location-form-input").val("");
+        $("#nl-bedrooms-form-input").val("");
+        $("#nl-bathrooms-form-input").val("");
+        $("#nl-size-form-input").val("");
+        $("#nl-price-form-input").val("");
+        $("#nl-fee-form-input").val("");
     });
     
     $("#save-agent").on("click", function() {
@@ -137,18 +140,19 @@ $( document ).ready(function() {
             return;
         }
         
-        db.collection("agent")
-        .doc()
-        .set({ 
+        db.collection("agent").doc().set({ 
             name: agentName,
             location : agentLocation,
             status : agentStatus
         }).then(function() {
-            agentDocuments = readDocuments("agent", options);
+            agentDocuments = readDocuments("agent", agentOptions);
             fetchAllData();
             showAgent();
             $(".content-loader").fadeOut("fast");
         });
+        
+        $("#na-name-form-input").val("");
+        $("#na-location-form-input").val("");
         
     });
     

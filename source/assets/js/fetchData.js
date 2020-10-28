@@ -1,11 +1,10 @@
-
 let listingOptions = []; //{where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]}
 let agentOptions = []; //{where: [["name", "==", "Property 1"], ["bedrooms", "==", "3"]]}
 
 function readDocuments(collection, options = {}) {
     let {where, orderBy, limit} = options;
     
-    let query = firebase.firestore().collectionGroup(collection);
+    let query = firebase.firestore().collection(collection);
     
     if (where) {
         if (where[0] instanceof Array) {
@@ -29,7 +28,6 @@ function readDocuments(collection, options = {}) {
     return query
             .get()
             .then()
-            .catch()
 }
 
 function getAgent(docID) {
@@ -61,19 +59,17 @@ function getAgentStatus(status) {
 }
 
 function checkLocationExists(loc) {
-    if(locationArray.indexOf(loc) !== -1) {
+    if(locationArray.lastIndexOf(loc) !== -1) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 function checkAgentExists(agent) {
-    if(agentArray.indexOf(agent) !== -1) {
+    if(agentNameArray.lastIndexOf(agent) !== -1) {
         return true;
-    } else {
-        return false;
     }
+    return false;
 }
 
 function returnDate(dt) {
@@ -85,9 +81,9 @@ function returnDate(dt) {
 
 function renderList(id,doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\''+doc.name+'\',\''+doc.location+'\',\'' + id + '\')"><td>' + returnDate(doc.date) + '</td><td>' + doc.name + '</td><td>' + doc.location + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '</td>' + getListingStatus(doc.status) + '</tr>');
+    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td>' + returnDate(doc.date) + '</td><td>' + doc.name + '</td><td>' + doc.location + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '</td>' + getListingStatus(doc.status) + '</tr>');
     
-    if (!checkLocationExists(doc.location)) {
+    if (checkLocationExists(doc.location) == false) {
         locationArray.push(doc.location);
     }
     
@@ -98,6 +94,7 @@ function renderAgent(id,doc) {
     $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.name + '</td><td>' + doc.location + '</td>' + getAgentStatus(doc.status) + '</tr>')
     
     if (!checkAgentExists(doc.name)) {
+        agentNameArray.push(doc.name);
         agentArray.push({name:doc.name, id:id});
     }
 }
@@ -106,9 +103,12 @@ let agentDocuments = readDocuments("agent", listingOptions); // read collection 
 let listingDocuments = readDocuments("listing", agentOptions); // read collection from firestore using provided options argument
 
 function fetchAllData() {
-    
+    let t0 = performance.now();
+
     $('.listing').hide();
     $('.agent').hide();
+    $('#listing-stats').hide();
+    $('#agent-stats').hide();
     $('.empty-l-data').show();
     $('.empty-a-data').show();
     $('#agent-s-d').show();
@@ -119,70 +119,85 @@ function fetchAllData() {
     agentDocuments.then(querySnapshot => {
         
         if(querySnapshot.empty) {
-            
-            $('.agent').hide();
-            $('.empty-a-data').show();
-            $('#agent-s-d').hide();
-            $('#agent-e-d').show();
-            
-        } else {
-            
-            $('.agent').show();
-            $('.empty-a-data').hide();
-
-            $(".agent .agent-table-data").empty(); // clear the table data
-            $('#filter-agent-form-select').empty(); // clear select form options
-            $('#filter-aic-form-select').empty(); // clear select form options
-            $('#nl-aic-form-select').empty(); // clear select form options
-            $('#nl-agent-form-select').empty(); // clear select form options
-
-            $('#filter-agent-form-select').append("<option selected>All</option>");
-            $('#filter-aic-form-select').append("<option selected>All</option>");
-            $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
-            $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
-
-            querySnapshot.forEach((doc) => {
-                renderAgent(doc.id,doc.data());
-            })        
-
-            Object.keys(agentArray).forEach(function (key) {
-                $('#filter-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-                $('#filter-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-                $('#nl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-                $('#nl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
-            });
-            
+            throw "NO-DATA-01";
         }
+            
+        $('.agent').show();
+        $('#agent-stats').show();
+        $('.empty-a-data').hide();
+
+        $(".agent .agent-table-data").empty(); // clear the table data
+        $('#filter-agent-form-select').empty(); // clear select form options
+        $('#filter-aic-form-select').empty(); // clear select form options
+        $('#nl-aic-form-select').empty(); // clear select form options
+        $('#nl-agent-form-select').empty(); // clear select form options
+        $('#vl-aic-form-select').empty(); // clear select form options
+        $('#vl-agent-form-select').empty(); // clear select form options
+
+        $('#filter-agent-form-select').append("<option selected>All</option>");
+        $('#filter-aic-form-select').append("<option selected>All</option>");
+        $('#nl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+        $('#nl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+        $('#vl-aic-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+        $('#vl-agent-form-select').append("<option value=\"\" selected hidden>Select an option</option>");
+
+        querySnapshot.forEach((doc) => {
+            renderAgent(doc.id,doc.data());
+        });  
         
+        $('#a-records').html(querySnapshot.size);
+    
+        let t1 = performance.now();
+
+        $('#a-execTime').html(((t1-t0)/1000).toFixed(3));
+
+        Object.keys(agentArray).forEach(function (key) {
+            $('#filter-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            $('#filter-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            $('#nl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            $('#nl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            $('#vl-aic-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+            $('#vl-agent-form-select').append($("<option></option>").attr("value", agentArray[key].id).text(agentArray[key].name));
+        });
+        
+    }).catch(function(error) {
+        $('.agent').hide();
+        $('.empty-a-data').show();
+        $('#agent-s-d').hide();
+        $('#agent-e-d').show();
     });
     
     listingDocuments.then((querySnapshot) => {
         
         if(querySnapshot.empty) {
-            
+            throw "NO-DATA-01";
+        }
+        
+        $('.listing').show();
+        $('#listing-stats').show();
+        $('.empty-l-data').hide();
+
+        $(".listing .listing-table-data").empty(); // clear the table data
+
+        querySnapshot.forEach((doc) => {
+            renderList(doc.id, doc.data());
+        });
+        
+        $('#l-records').html(querySnapshot.size);
+    
+        let t1 = performance.now();
+
+        $('#l-execTime').html(((t1-t0)/1000).toFixed(3));
+
+    }).catch(function(error) {
+        if(error == "NO-DATA-01") {
             $('.listing').hide();
             $('.empty-l-data').show();
             $('#listing-s-d').hide();
             $('#listing-e-d').show();
-            
-        } else {
-            
-            $('.listing').show();
-            $('.empty-l-data').hide();
-
-            $(".listing .listing-table-data").empty(); // clear the table data
-
-            querySnapshot.forEach((doc) => {
-                
-                renderList(doc.id, doc.data());
-                
-            })
-            
         }
-
     });
 
     autocomplete(document.getElementById("location-form-input"), locationArray);
-        
 }
 

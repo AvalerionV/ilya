@@ -1,5 +1,6 @@
 var locationArray = [];
 var agentArray = [];
+var agentNameArray = [];
 
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
