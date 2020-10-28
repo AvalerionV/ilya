@@ -186,6 +186,7 @@ function saveDoc(docID) {
     }).then(function() {
         listingDocuments = readDocuments("listing", listingOptions);
         fetchAllData();
+        showListing();
         $(".content-loader").fadeOut("fast");
     });
 }
