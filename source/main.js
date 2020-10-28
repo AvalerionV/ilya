@@ -36,28 +36,38 @@ function createWindow () {
 
 /*checking for updates*/
 autoUpdater.on("checking-for-update", () => {
-  //your code
+    sendStatusToWindow('Checking for update...');
 });
 
 /*No updates available*/
 autoUpdater.on("update-not-available", info => {
-  log.info(info)
+    sendStatusToWindow('Update not available.');
 });
 
 /*New Update Available*/
 autoUpdater.on("update-available", info => {
-  //your code
+    sendStatusToWindow('Update available.');
 });
 
 /*Download Status Report*/
 autoUpdater.on("download-progress", progressObj => {
- //your code
+    sendStatusToWindow('Download progress...');
 });
 
 /*Download Completion Message*/
 autoUpdater.on("update-downloaded", info => {
- //your code
+    sendStatusToWindow('Update downloaded; will install in 5 seconds');
 });
+
+/*Install And Quit*/
+autoUpdater.on('update-downloaded', (ev, info) => {
+  // Wait 5 seconds, then quit and install
+  // In your application, you don't need to wait 5 seconds.
+  // You could call autoUpdater.quitAndInstall(); immediately
+  setTimeout(function() {
+    autoUpdater.quitAndInstall();  
+  }, 5000)
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
