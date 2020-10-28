@@ -1,6 +1,6 @@
 {
   "name": "BCP_PMS",
-  "version": "0.0.18-alpha.1",
+  "version": "0.0.20-alpha.1",
   "description": "Property Management System",
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
