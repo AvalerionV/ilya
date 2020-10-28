@@ -5,6 +5,7 @@
   "repository": "https://github.com/AvalerionV/ilya",
   "main": "./source/main.js",
   "dependencies": {
+    "electron-log": "^4.2.4",
     "electron-updater": "^4.3.5"
   },
   "devDependencies": {
