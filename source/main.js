@@ -1,4 +1,4 @@
-const { app, BrowserWindow, protocol, ipcMain } = require('electron')
+const { app, BrowserWindow, webContents, ipcMain } = require('electron')
 const { autoUpdater } = require("electron-updater")
 const log = require('electron-log')
 const path = require('path')
@@ -9,7 +9,7 @@ log.info('App starting...');
 
 let win;
 
-function sendStatusToWindow(text) {
+async function sendStatusToWindow (text) {
   log.info(text);
   win.webContents.send('message', text);
 }
@@ -17,21 +17,26 @@ function sendStatusToWindow(text) {
 function createWindow () {
     
     // Create the browser window.
-    const win = new BrowserWindow({
-    title: "Blue Caribbean Properties - Management System",
-    webPreferences: {
-        preload: path.join(__dirname, 'preload.js'),
-        contextIsolation: true
-    }
+    win = new BrowserWindow({
+        title: "Blue Caribbean Properties - Management System",
+        icon: path.join(__dirname, 'icon.ico'),
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js'),
+            contextIsolation: true
+        }
     })
+    
+    win.webContents.openDevTools()
 
     win.setMenuBarVisibility(false)
 
     // and load the index.html of the app.
     win.loadFile(path.join(__dirname, 'index.html'))
 
-    autoUpdater.checkForUpdatesAndNotify()
-
+    autoUpdater.checkForUpdatesAndNotify().then(function() {
+        sendStatusToWindow('Checking for update...');
+    })
+    
 }
 
 /*checking for updates*/
@@ -73,12 +78,12 @@ autoUpdater.on('update-downloaded', (ev, info) => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-    createWindow()
-
+    createWindow();
+    
     app.on('activate', function () {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (BrowserWindow.getAllWindows().length === 0) createWindow()
+        // On macOS it's common to re-create a window in the app when the
+        // dock icon is clicked and there are no other windows open.
+        if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
 })
 
