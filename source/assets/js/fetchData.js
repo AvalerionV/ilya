@@ -40,6 +40,16 @@ function getAgent(docID) {
     return agent;
 }
 
+function getAgentLocation(docID) {
+    var location = null;
+    Object.keys(agentArray).forEach(function (key) {
+        if(agentArray[key].id == docID) {
+            location = agentArray[key].location;
+        }
+    });
+    return location;
+}
+
 function getListingStatus(status) {
     if(status == 'For Rent') {
         return '<td id="status-for-rent"><span>Rent</span></td>';
@@ -81,7 +91,7 @@ function returnDate(dt) {
 
 function renderList(id,doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td><div id="l-name">' + doc.name + '</div><div id="l-location">' + doc.location + '</div></td><td>' + returnDate(doc.date) + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '</td>' + getListingStatus(doc.status) + '</tr>');
+    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td><div id="l-name">' + doc.name + '</div><div id="l-location">' + doc.location + '</div></td><td>' + returnDate(doc.date) + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '<div id="l-location">' + getAgentLocation(doc.agent) + '</div></td>' + getListingStatus(doc.status) + '</tr>');
     
     if (checkLocationExists(doc.location) == false) {
         locationArray.push(doc.location);
@@ -95,7 +105,7 @@ function renderAgent(id,doc) {
     
     if (!checkAgentExists(doc.name)) {
         agentNameArray.push(doc.name);
-        agentArray.push({name:doc.name, id:id});
+        agentArray.push({name:doc.name, id:id, location:doc.location});
     }
 }
 
