@@ -107,8 +107,8 @@ function fetchAllData() {
 
     $('.listing').hide();
     $('.agent').hide();
-    $('#listing-stats').hide();
-    $('#agent-stats').hide();
+    $('#l-stats').hide();
+    $('#a-stats').hide();
     $('.empty-l-data').show();
     $('.empty-a-data').show();
     $('#agent-s-d').show();
@@ -123,7 +123,7 @@ function fetchAllData() {
         }
             
         $('.agent').show();
-        $('#agent-stats').show();
+        $('#a-stats').show();
         $('.empty-a-data').hide();
 
         $(".agent .agent-table-data").empty(); // clear the table data
@@ -174,7 +174,7 @@ function fetchAllData() {
         }
         
         $('.listing').show();
-        $('#listing-stats').show();
+        $('#l-stats').show();
         $('.empty-l-data').hide();
 
         $(".listing .listing-table-data").empty(); // clear the table data
