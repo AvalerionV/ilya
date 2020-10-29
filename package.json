@@ -20,7 +20,8 @@
           "owner": "AvalerionV",
           "repo": "ilya"
         }
-      ]
+      ],
+      "icon": "./source/icon.ico"
     }
   },
   "scripts": {
