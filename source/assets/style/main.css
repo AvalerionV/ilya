@@ -917,7 +917,7 @@ th:last-child, td:last-child {
 }
 
 .top-component-left-button {
-    border-radius: 5px;
+    border-radius: 0.5rem;
     color: white;
 }
 
