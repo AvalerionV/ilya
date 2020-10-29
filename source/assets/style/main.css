@@ -16,7 +16,6 @@
 	--text-secondary: #F1F4F9;
     --text-third: #4D7DE3;
 	--transition-speed: 600ms;
-    --transition-speed-f: 300ms;
 }
 
 body,html {
@@ -265,6 +264,7 @@ button {
 	padding: 0.7rem 1rem;
 	background: var(--bg-white);
     border-top: 1px solid var(--bg-secondary);
+    box-shadow: 0 0 4px 0 #c5c5c5;
 }
 
 .top-nav {
@@ -293,10 +293,10 @@ button {
 
 .filter-nav {
 	list-style: none;
-	padding: 0;
-	margin: 0;
 	display: flex;
 	align-items: center;
+    padding: 1rem;
+    margin: 0;
 }
 
 .filter-item:not(:first-child) {
@@ -323,9 +323,7 @@ button {
 	align-items:center;
 	text-decoration: none;
     color: var(--text-primary);
-    border-bottom: 1px solid #f1f1f1;
-    margin-right: 1rem;
-    padding-right: 1rem;
+    margin-right: 2rem;
 }
 
 .top-link img {
@@ -347,12 +345,12 @@ main h1 {
 
 .navbar:hover ~ .content-loader .loader-bg {
     margin-left: 10rem;
-    transition: var(--transition-speed-f);
+    transition: var(--transition-speed);
 }
 
 .navbar:hover ~ .content-loader .center-element {
     left: 5rem;
-    transition: var(--transition-speed-f);
+    transition: var(--transition-speed);
 }
 
 .loader-bg {
@@ -454,12 +452,12 @@ main h1 {
 
 .container-box {
 	background-color: white;
-	border-bottom: 3px solid var(--border-primary);
-	border-left: 3px solid var(--border-primary);
-	border-right: 3px solid var(--border-primary);
-	border-radius: 5px;
-	padding: 1rem;
+	border-bottom: 1px solid var(--border-primary);
+	border-left: 1px solid var(--border-primary);
+	border-right: 1px solid var(--border-primary);
+	border-radius: .5rem;
 	margin-bottom: 1rem;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
 }
 
 .m-s-r {
@@ -507,7 +505,6 @@ main h1 {
 .c-main {
 	display: flex;
 	flex-wrap:wrap;
-    margin: 1rem 0;
 }
 
 .f-s-main {
@@ -529,8 +526,8 @@ main h1 {
 }
 
 .filter-tab-options-container {
-    padding: 0 1rem 0 1rem;
-    margin: 2rem 0 1rem 0;
+    padding: 0 2rem 0 2rem;
+    margin: 1rem 0 2rem;
     flex-grow: 1;
     flex-basis: 25%;
 }
@@ -717,9 +714,8 @@ main h1 {
 .top-title-text {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 1rem;
-    padding-top: 1rem;
     margin-right: auto;
+    color: dimgrey;
 }
 
 .time-title {
@@ -756,6 +752,11 @@ main h1 {
     display: none;
 }
 
+.filters-container {
+    padding-top: 1rem;
+    border-top: 1px solid #6b72801a;
+}
+
 .listing {
     border-collapse:separate; 
     border-spacing: 0 0;
@@ -766,8 +767,21 @@ main h1 {
     border-spacing: 0 0;
 }
 
+th,td {
+    border-bottom: 1px solid #6b72801a;
+}
+
 tr {
     margin-bottom: 1rem;
+}
+
+thead {
+    color: #6b7280;
+}
+
+thead tr th {
+    text-transform: uppercase;
+    font-weight: 100;
 }
 
 th,td {
@@ -775,21 +789,21 @@ th,td {
     padding: 12px 15px;
 }
 
-.listing tr:nth-of-type(even) {
-    background-color: #fcfcfc;
+th:first-child, td:first-child {
+    padding-left: 2rem;
 }
 
-.agent tr:nth-of-type(even) {
-    background-color: #fcfcfc;
+th:last-child, td:last-child {
+    padding-right: 2rem;
 }
 
 .listing .item-data:hover {
-    background-color: var(--table-primary);
+    background-color: #fcfcfc;
     cursor: pointer;
 }
 
 .agent-table-data .item-data:hover {
-    background-color: var(--table-primary);
+    background-color: #fcfcfc;
     cursor: pointer;
 }
 
@@ -862,6 +876,7 @@ th,td {
     padding-bottom: 1rem;
     border-bottom: 2px solid #f5f5f5;
     font-weight: 100;
+    font-size: 24px;
 }
 
 #c-version {
@@ -938,7 +953,7 @@ th,td {
 .vl-top-title-text {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .vl-select-css {
@@ -952,7 +967,7 @@ th,td {
 .nl-top-title-text {
     display: flex;
     align-items: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .clear-button {
@@ -1088,7 +1103,7 @@ th,td {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 10px 0;
+    padding: 2rem 1rem;
 }
 
 .empty-a-data {
@@ -1096,7 +1111,7 @@ th,td {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 10px 0;
+    padding: 2rem 1rem;
 }
 
 .search-dialog {
@@ -1140,7 +1155,7 @@ th,td {
 }
 
 .stats {
-    padding: 0 1rem 1rem;
+    padding: 1rem 2rem;
 }
 
 .stats .left {
@@ -1191,4 +1206,30 @@ th,td {
         margin-top: 2rem; 
         margin-bottom: 2rem; 
     } 
+}
+
+.new-list-box, .view-list-box {
+    padding: 1rem 1rem;
+}
+
+.agent-search-box {
+    width:100%;
+}
+
+#l-location {
+    color: dimgrey;
+    font-size: 0.8rem;
+}
+
+#l-name {
+    font-weight: bold;
+}
+
+#a-name {
+    font-weight: bold;
+}
+
+#a-location {
+    color: dimgrey;
+    font-size: 0.8rem;
 }

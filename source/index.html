@@ -25,7 +25,6 @@
         <script src="./assets/js/auth.js"></script>
         <script src="./assets/js/save.js"></script>
         <script src="./assets/js/autocomplete.js"></script>
-        <script src="./assets/js/time.js"></script>
         <script src="./assets/js/navbar.js"></script>
         <script src="./assets/js/filter.js"></script>
         <script src="./assets/js/edit.js"></script>
@@ -177,6 +176,16 @@
         <main class="content">
             
             <div class="dashboard-b">
+                
+                <div class="top-title-component">
+                
+                    <div class="top-title-text">
+                    
+                        <span>Dashboard</span>
+                    
+                    </div>
+                
+                </div>
 
                 <div class="container-box">
 
@@ -188,17 +197,7 @@
                             
                             <i>“The secret of getting ahead is getting started.” – Mark Twain.</i>
 
-                        </div>	
-
-                        <div class="card time-card">
-
-                            <div class="time-title">
-                                <i class="fas fa-clock dt"></i>
-                            </div>
-
-                            <div class="current-dt"></div>
-
-                        </div>					
+                        </div>				
 
                     </div>
 
@@ -573,25 +572,16 @@
                 
                 <div class="container-box">
                     
-                    <div class="stats" id="listing-stats">
-                    
-                        <div class="left">
-                        
-                            About <span id="l-records">0</span> results (<span id="l-execTime"></span> seconds)
-                            
-                        </div>
-                    
-                    </div>
-                    
                     <table style="width:100%" class="listing">
-                        <tr>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Location</th>
-                            <th>Type</th>
-                            <th>Agent</th>
-                            <th>Status</th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Property</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Agent</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
                         <tbody class="listing-table-data">
                         </tbody>
                     </table>
@@ -616,6 +606,20 @@
                         
                     </div>
                 
+                </div>
+                
+                <div class="container-box">
+                
+                    <div class="stats" id="listing-stats">
+                    
+                        <div class="left">
+                        
+                            About <span id="l-records">0</span> results (<span id="l-execTime"></span> seconds)
+                            
+                        </div>
+                    
+                    </div>
+                    
                 </div>
             
             </div>
@@ -664,139 +668,143 @@
                 
                 <div class="container-box">
                     
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Name</span>
-                                            
-                        <input type="text" placeholder="Enter Name of Property" id="vl-name-form-input" autocomplete="off">
-                                                
-                    </div>
+                    <div class="view-list-box">
                     
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Location</span>
-                                            
-                        <input type="text" placeholder="Enter Location of Property" id="vl-location-form-input" autocomplete="off">
-                                                
-                    </div>
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Name</span>
+
+                            <input type="text" placeholder="Enter Name of Property" id="vl-name-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Location</span>
+
+                            <input type="text" placeholder="Enter Location of Property" id="vl-location-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Bedrooms</span>
+
+                            <input type="number" placeholder="Enter Number of Bedrooms" id="vl-bedrooms-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Bathrooms</span>
+
+                            <input type="number" placeholder="Enter Number of Bathrooms" id="vl-bathrooms-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Size</span> (sqft)
+
+                            <input type="number" placeholder="Enter Size of Property" id="vl-size-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Price</span> (USD)
+
+                            <input type="number" placeholder="Enter Price of Property" id="vl-price-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Fee</span> (USD)
+
+                            <input type="number" placeholder="Enter Fee of Property" id="vl-fee-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Type</span>
+
+                            <select required class="vl-select-css" id="vl-type-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Condos">Condos</option>
+                                <option value="House">House</option>
+                                <option value="Land">Land</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Villas">Villas</option>
+                                <option value="Penthouse">Penthouse</option>
+                                <option value="VIP Condo">VIP Condo</option>
+                            </select>
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Assistant In-Charge</span>
+
+                            <select required class="vl-select-css" id="vl-aic-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                            </select>
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Status</span>
+
+                            <select required class="vl-select-css" id="vl-status-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="For Rent">For Rent</option>
+                                <option value="For Sale">For Sale</option>
+                                <option value="Sold">Sold</option>
+                            </select>
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Agent</span>
+
+                            <select required class="vl-select-css" id="vl-agent-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                            </select>
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">Confotur?</span>
+
+                            <select required class="vl-select-css" id="vl-confotur-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+
+                        </div>
+
+                        <div class="view-list-form">
+
+                            <span id="title-bold-l">New Construction or Resale?</span>
+
+                            <select required class="vl-select-css" id="vl-nor-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="Resale">Resale</option>
+                                <option value="Land">Land</option>
+                                <option value="New Construction">New Construction</option>
+                                <option value="New Construction - Resale">New Construction - Resale</option>
+                                <option value="For Rent - Long Term">For Rent - Long Term</option>
+                                <option value="For Rent - Short Term">For Rent - Short Term</option>
+                            </select>
+
+                        </div>
                     
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Bedrooms</span>
-                                            
-                        <input type="number" placeholder="Enter Number of Bedrooms" id="vl-bedrooms-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Bathrooms</span>
-                                            
-                        <input type="number" placeholder="Enter Number of Bathrooms" id="vl-bathrooms-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Size</span> (sqft)
-                                            
-                        <input type="number" placeholder="Enter Size of Property" id="vl-size-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Price</span> (USD)
-                                            
-                        <input type="number" placeholder="Enter Price of Property" id="vl-price-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Fee</span> (USD)
-                                            
-                        <input type="number" placeholder="Enter Fee of Property" id="vl-fee-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Type</span>
-                                            
-                        <select required class="vl-select-css" id="vl-type-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Condos">Condos</option>
-                            <option value="House">House</option>
-                            <option value="Land">Land</option>
-                            <option value="Villa">Villa</option>
-                            <option value="Villas">Villas</option>
-                            <option value="Penthouse">Penthouse</option>
-                            <option value="VIP Condo">VIP Condo</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Assistant In-Charge</span>
-                                            
-                        <select required class="vl-select-css" id="vl-aic-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Status</span>
-                                            
-                        <select required class="vl-select-css" id="vl-status-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="For Rent">For Rent</option>
-                            <option value="For Sale">For Sale</option>
-                            <option value="Sold">Sold</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Agent</span>
-                                            
-                        <select required class="vl-select-css" id="vl-agent-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">Confotur?</span>
-                                            
-                        <select required class="vl-select-css" id="vl-confotur-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="view-list-form">
-                            
-                        <span id="title-bold-l">New Construction or Resale?</span>
-                                            
-                        <select required class="vl-select-css" id="vl-nor-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="Resale">Resale</option>
-                            <option value="Land">Land</option>
-                            <option value="New Construction">New Construction</option>
-                            <option value="New Construction - Resale">New Construction - Resale</option>
-                            <option value="For Rent - Long Term">For Rent - Long Term</option>
-                            <option value="For Rent - Short Term">For Rent - Short Term</option>
-                        </select>
-                        
                     </div>
                     
                 </div>
@@ -835,139 +843,143 @@
                 
                 <div class="container-box">
                     
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Name</span><span class="red-text">(Required)</span>
-                                            
-                        <input type="text" placeholder="Enter Name of Property" id="nl-name-form-input" autocomplete="off">
-                                                
-                    </div>
+                    <div class="new-list-box">
                     
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Location</span><span class="red-text">(Required)</span>
-                                            
-                        <input type="text" placeholder="Enter Location of Property" id="nl-location-form-input" autocomplete="off">
-                                                
-                    </div>
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Name</span><span class="red-text">(Required)</span>
+
+                            <input type="text" placeholder="Enter Name of Property" id="nl-name-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Location</span><span class="red-text">(Required)</span>
+
+                            <input type="text" placeholder="Enter Location of Property" id="nl-location-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Bedrooms</span><span class="red-text">(Required)</span>
+
+                            <input type="number" placeholder="Enter Number of Bedrooms" id="nl-bedrooms-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Bathrooms</span><span class="red-text">(Required)</span>
+
+                            <input type="number" placeholder="Enter Number of Bathrooms" id="nl-bathrooms-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Size</span> (sqft)<span class="red-text">(Required)</span>
+
+                            <input type="number" placeholder="Enter Size of Property" id="nl-size-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Price</span> (USD)<span class="red-text">(Required)</span>
+
+                            <input type="number" placeholder="Enter Price of Property" id="nl-price-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Fee</span> (USD)
+
+                            <input type="number" placeholder="Enter Fee of Property" id="nl-fee-form-input" autocomplete="off">
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Type</span><span class="red-text">(Required)</span>
+
+                            <select required class="nl-select-css" id="nl-type-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="Condo">Condo</option>
+                                <option value="Condos">Condos</option>
+                                <option value="House">House</option>
+                                <option value="Land">Land</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Villas">Villas</option>
+                                <option value="Penthouse">Penthouse</option>
+                                <option value="VIP Condo">VIP Condo</option>
+                            </select>
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Assistant In-Charge</span>
+
+                            <select required class="nl-select-css" id="nl-aic-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                            </select>
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Status</span><span class="red-text">(Required)</span>
+
+                            <select required class="nl-select-css" id="nl-status-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="For Rent">For Rent</option>
+                                <option value="For Sale">For Sale</option>
+                                <option value="Sold">Sold</option>
+                            </select>
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Agent</span><span class="red-text">(Required)</span>
+
+                            <select required class="nl-select-css" id="nl-agent-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                            </select>
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">Confotur?</span><span class="red-text">(Required)</span>
+
+                            <select required class="nl-select-css" id="nl-confotur-form-select">
+                                <option value="" selected hidden>Select an option</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                            </select>
+
+                        </div>
+
+                        <div class="new-list-form">
+
+                            <span id="title-bold-l">New Construction or Resale?</span><span class="red-text">(Required)</span>
+
+                            <select required class="nl-select-css" id="nl-nor-form-select">
+                                <option value="null" selected hidden>Select an option</option>
+                                <option value="Resale">Resale</option>
+                                <option value="Land">Land</option>
+                                <option value="New Construction">New Construction</option>
+                                <option value="New Construction - Resale">New Construction - Resale</option>
+                                <option value="For Rent - Long Term">For Rent - Long Term</option>
+                                <option value="For Rent - Short Term">For Rent - Short Term</option>
+                            </select>
+
+                        </div>
                     
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Bedrooms</span><span class="red-text">(Required)</span>
-                                            
-                        <input type="number" placeholder="Enter Number of Bedrooms" id="nl-bedrooms-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Bathrooms</span><span class="red-text">(Required)</span>
-                                            
-                        <input type="number" placeholder="Enter Number of Bathrooms" id="nl-bathrooms-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Size</span> (sqft)<span class="red-text">(Required)</span>
-                                            
-                        <input type="number" placeholder="Enter Size of Property" id="nl-size-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Price</span> (USD)<span class="red-text">(Required)</span>
-                                            
-                        <input type="number" placeholder="Enter Price of Property" id="nl-price-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Fee</span> (USD)
-                                            
-                        <input type="number" placeholder="Enter Fee of Property" id="nl-fee-form-input" autocomplete="off">
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Type</span><span class="red-text">(Required)</span>
-                                            
-                        <select required class="nl-select-css" id="nl-type-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="Condo">Condo</option>
-                            <option value="Condos">Condos</option>
-                            <option value="House">House</option>
-                            <option value="Land">Land</option>
-                            <option value="Villa">Villa</option>
-                            <option value="Villas">Villas</option>
-                            <option value="Penthouse">Penthouse</option>
-                            <option value="VIP Condo">VIP Condo</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Assistant In-Charge</span>
-                                            
-                        <select required class="nl-select-css" id="nl-aic-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Status</span><span class="red-text">(Required)</span>
-                                            
-                        <select required class="nl-select-css" id="nl-status-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="For Rent">For Rent</option>
-                            <option value="For Sale">For Sale</option>
-                            <option value="Sold">Sold</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Agent</span><span class="red-text">(Required)</span>
-                                            
-                        <select required class="nl-select-css" id="nl-agent-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">Confotur?</span><span class="red-text">(Required)</span>
-                                            
-                        <select required class="nl-select-css" id="nl-confotur-form-select">
-                            <option value="" selected hidden>Select an option</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No</option>
-                        </select>
-                        
-                    </div>
-                    
-                    <div class="new-list-form">
-                            
-                        <span id="title-bold-l">New Construction or Resale?</span><span class="red-text">(Required)</span>
-                                            
-                        <select required class="nl-select-css" id="nl-nor-form-select">
-                            <option value="null" selected hidden>Select an option</option>
-                            <option value="Resale">Resale</option>
-                            <option value="Land">Land</option>
-                            <option value="New Construction">New Construction</option>
-                            <option value="New Construction - Resale">New Construction - Resale</option>
-                            <option value="For Rent - Long Term">For Rent - Long Term</option>
-                            <option value="For Rent - Short Term">For Rent - Short Term</option>
-                        </select>
-                        
                     </div>
                     
                 </div>
@@ -1019,22 +1031,13 @@
                 
                 <div class="container-box">
                     
-                    <div class="stats" id="agent-stats">
-                    
-                        <div class="left">
-                        
-                            About <span id="a-records">0</span> results (<span id="a-execTime"></span> seconds)
-                            
-                        </div>
-                    
-                    </div>
-                    
                     <table style="width:100%" class="agent">
-                        <tr>
-                            <th>Fullname</th>
-                            <th>Location</th>
-                            <th>Status</th>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>Agent</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
                         <tbody class="agent-table-data">
                         </tbody>
                     </table>
@@ -1059,6 +1062,20 @@
                         
                     </div>
                 
+                </div>
+                
+                <div class="container-box">
+                
+                    <div class="stats" id="agent-stats">
+                    
+                        <div class="left">
+                        
+                            About <span id="a-records">0</span> results (<span id="a-execTime"></span> seconds)
+                            
+                        </div>
+                    
+                    </div>
+                    
                 </div>
             
             </div>
@@ -1129,17 +1146,25 @@
             
             <div class="info-b">
                 
-                <h1>Information Panel</h1>
+                <div class="top-title-component">
+                
+                    <div class="top-title-text">
+                    
+                        <span>Information Panel</span>
+                    
+                    </div>
+                
+                </div>
             
                 <div class="container-box">
                     
                     <div class="changelog">
                                 
-                        <h2 id="c-title">Current Release <span id="c-version">(v<span id="c-v">{version}</span>)</span></h2>
+                        <div id="c-title">Current Release <span id="c-version">(v<span id="c-v">{version}</span>)</span></div>
                         
                         <div class="c-n-container">
                             
-                            <div id="c-note">✨ : Added notification on update feature</div>
+                            <div id="c-note">💄 : Minor design changes to UI</div>
                         
                         </div>
                         
