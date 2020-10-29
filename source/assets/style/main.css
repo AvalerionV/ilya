@@ -1192,3 +1192,20 @@ th,td {
         margin-bottom: 2rem; 
     } 
 }
+
+#notification {
+    position: fixed;
+    -webkit-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1rem;
+    bottom: 0;
+    right: 0;
+}
+
+#messages {
+    display: inline-block;
+}
