@@ -1,8 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 
 :root {
 	font-size:16px;
-	font-family: 'Open Sans',serif;
+	font-family: 'Roboto',serif;
 	--bg-primary: #4D7DE3;
 	--bg-secondary: #F1F4F9;
 	--bg-dark: #3d65b9;
@@ -1227,12 +1227,9 @@ th:last-child, td:last-child {
     font-size: 0.8rem;
 }
 
-#l-name {
-    font-weight: bold;
-}
-
-#a-name {
-    font-weight: bold;
+#l-size {
+    color: dimgrey;
+    font-size: 0.8rem;
 }
 
 #a-location {

@@ -84,14 +84,14 @@ function checkAgentExists(agent) {
 
 function returnDate(dt) {
     if(dt != undefined) {
-        return dt.toDate().toDateString();
+        return dt.toDate().toLocaleDateString();
     }
     return '';
 }
 
 function renderList(id,doc) {
     
-    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td><div id="l-name">' + doc.name + '</div><div id="l-location">' + doc.location + '</div></td><td>' + returnDate(doc.date) + '</td><td>'+ doc.top +'</td><td>' + getAgent(doc.agent) + '<div id="l-location">' + getAgentLocation(doc.agent) + '</div></td>' + getListingStatus(doc.status) + '</tr>');
+    $('.listing .listing-table-data').append('<tr class="item-data" onclick="openDocument(\'' + id + '\')"><td>' + doc.name + '<div id="l-location">' + doc.location + '</div></td><td>'+ doc.top +'<div id="l-size">' + doc.size + ' sqft</div></td><td>' + getAgent(doc.agent) + '<div id="l-location">' + getAgentLocation(doc.agent) + '</div><td>' + returnDate(doc.date) + '</td></td>' + getListingStatus(doc.status) + '</tr>');
     
     if (checkLocationExists(doc.location) == false) {
         locationArray.push(doc.location);
@@ -101,7 +101,7 @@ function renderList(id,doc) {
 
 function renderAgent(id,doc) {
     
-    $('.agent .agent-table-data').append('<tr class="item-data"><td><div id="a-name">' + doc.name + '</div><div id="a-location">' + doc.location + '</div></td>' + getAgentStatus(doc.status) + '</tr>')
+    $('.agent .agent-table-data').append('<tr class="item-data"><td>' + doc.name + '<div id="a-location">' + doc.location + '</div></td>' + getAgentStatus(doc.status) + '</tr>')
     
     if (!checkAgentExists(doc.name)) {
         agentNameArray.push(doc.name);
